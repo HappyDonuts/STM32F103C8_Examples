@@ -43,7 +43,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "print_UART.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -76,7 +76,7 @@ static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
-void tx_UART_int(UART_HandleTypeDef *huart, int data, uint16_t Size, uint32_t Timeout);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -115,21 +115,30 @@ int main(void)
   MX_USART1_UART_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  int data_adc;
+  HAL_ADCEx_Calibration_Start(&hadc1);
+  static uint16_t data_adc;
+  static float data_adc_float;
+  static float media=0;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_ADC_Start(&hadc1);
-	  	  HAL_ADC_PollForConversion(&hadc1, 1000);
-	  	  data_adc = HAL_ADC_GetValue(&hadc1);
-	  	  HAL_ADC_Stop(&hadc1);
 
-	  	  tx_UART_int(&huart1, data_adc, 4, 10);
+	  for (uint8_t i=0; i<50; i++){
+		  HAL_ADC_Start(&hadc1);
+		  HAL_ADC_PollForConversion(&hadc1, 1000);
+		  data_adc = HAL_ADC_GetValue(&hadc1);
+		  HAL_ADC_Stop(&hadc1);
+		  data_adc_float = data_adc;
+		  media = (media*i + data_adc_float*3.3/4095) / (i+1);
 
-	  	  HAL_Delay(100);
+		  HAL_Delay(50);
+	  }
+
+	  tx_UART_float(&huart1, media,2, 10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -284,19 +293,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void tx_UART_int(UART_HandleTypeDef *huart, int data, uint16_t Size, uint32_t Timeout)
-{
-	char data_char[Size+2];		// String de chars
-	uint8_t data_tx[Size+2];	// String de uint8_t
-	uint8_t i;
 
-	sprintf(data_char,"%d\r\n", data);	// Cada numero del int en un char
-
-	for(i=0; i<Size+2; i++ ) {			// Casting de char a uint8_t
-		data_tx[i] = (uint8_t) data_char[i];
-	}
-	HAL_UART_Transmit(huart,data_tx,sizeof(data_tx), 10);	// TX por UART del array de uint8_t
-}
 /* USER CODE END 4 */
 
 /**
