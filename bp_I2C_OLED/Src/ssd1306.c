@@ -165,7 +165,7 @@ void SSD1306_GotoXY(uint16_t x, uint16_t y) {
 	SSD1306.CurrentY = y;
 }
 
-char SSD1306_Putc(char ch, FontDef_t* Font, SSD1306_COLOR_t color) {
+char SSD1306_Putc(uint8_t ch, FontDef_t* Font, SSD1306_COLOR_t color) {
 	uint32_t i, b, j;
 	
 	/* Check available space in LCD */
@@ -196,6 +196,13 @@ char SSD1306_Putc(char ch, FontDef_t* Font, SSD1306_COLOR_t color) {
 	return ch;
 }
 
+void SSD1306_Putint(int data, uint8_t slot) {
+	if (data < 0) {
+		data = -data;
+	 	switch (slot)
+
+}
+
 char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color) {
 	/* Write characters */
 	while (*str) {
@@ -212,7 +219,6 @@ char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color) {
 	/* Everything OK, zero should be returned */
 	return *str;
 }
- 
 
 void SSD1306_DrawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, SSD1306_COLOR_t c) {
 	int16_t dx, dy, sx, sy, err, e2, i, tmp; 

@@ -138,7 +138,7 @@ void SSD1306_GotoXY(uint16_t x, uint16_t y);
  * @param  color: Color used for drawing. This parameter can be a value of @ref SSD1306_COLOR_t enumeration
  * @retval Character written
  */
-char SSD1306_Putc(char ch, FontDef_t* Font, SSD1306_COLOR_t color);
+char SSD1306_Putc(uint8_t ch, FontDef_t* Font, SSD1306_COLOR_t color);
 
 /**
  * @brief  Puts string to internal RAM
