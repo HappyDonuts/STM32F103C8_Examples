@@ -115,11 +115,18 @@ int main(void)
   ssd1306_sel_I2C(&hi2c2);
   SSD1306_Init ();
 
-  SSD1306_GotoXY (40,1);
-  SSD1306_Puts ("Holi", &Font_11x18, 1);
-  SSD1306_GotoXY (50,30);
-  SSD1306_Puts (":)", &Font_11x18, 1);
-  //  SSD1306_DrawLine(0, 15, 128, 15, 1 ); // y=15 ultima linea amarilla
+  SSD1306_GotoXY (20,1);
+  SSD1306_Puts ("1234567890", &Font_11x18, 1);
+//SSD1306_DrawLine(0, 15, 128, 15, 1 ); // y=15 ultima linea amarilla
+
+  SSD1306_GotoXY (20,16);
+  SSD1306_Puts ("1234567890", &Font_11x18, 1);
+  SSD1306_GotoXY (20,32);
+  SSD1306_Puts ("1234567890", &Font_11x18, 1);
+  SSD1306_GotoXY (20,52);
+  SSD1306_Puts ("12345", &Font_7x10, 1);
+  SSD1306_GotoXY (70,52);
+  SSD1306_Puts ("67890", &Font_7x10, 1);
   SSD1306_UpdateScreen(); //display
 
   /* USER CODE END 2 */
