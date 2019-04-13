@@ -112,12 +112,12 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
+  set_oled_addr(0x78);
   ssd1306_sel_I2C(&hi2c2);
   SSD1306_Init ();
 
+  int32_t data = -1236;
 
-  int32_t data = -123456;
-  //SSD1306_DrawLine(0, 15, 128, 15, 1 ); // y=15 ultima linea amarilla
   SSD1306_Putint(data, 1);
   SSD1306_Putint(data, 2);
   SSD1306_Putint(data, 3);

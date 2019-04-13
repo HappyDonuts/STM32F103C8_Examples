@@ -23,10 +23,11 @@
 #include "ssd1306.h"
 
 I2C_HandleTypeDef hi2c_current;
+uint8_t oled_addr;
 /* Write command */
-#define SSD1306_WRITECOMMAND(command)      ssd1306_I2C_Write(SSD1306_I2C_ADDR, 0x00, (command))
+#define SSD1306_WRITECOMMAND(command)      ssd1306_I2C_Write(oled_addr, 0x00, (command))
 /* Write data */
-#define SSD1306_WRITEDATA(data)            ssd1306_I2C_Write(SSD1306_I2C_ADDR, 0x40, (data))
+#define SSD1306_WRITEDATA(data)            ssd1306_I2C_Write(oled_addr, 0x40, (data))
 /* Absolute value */
 #define ABS(x)   ((x) > 0 ? (x) : -(x))
 
@@ -44,6 +45,9 @@ typedef struct {
 /* Private variable */
 static SSD1306_t SSD1306;
 
+void set_oled_addr(uint8_t addr){
+	oled_addr = addr;
+}
 uint8_t SSD1306_Init(void) {
 
 	/* Init I2C */
@@ -116,7 +120,7 @@ void SSD1306_UpdateScreen(void) {
 		SSD1306_WRITECOMMAND(0x10);
 
 		/* Write multi data */
-		ssd1306_I2C_WriteMulti(SSD1306_I2C_ADDR, 0x40, &SSD1306_Buffer[SSD1306_WIDTH * m], SSD1306_WIDTH);
+		ssd1306_I2C_WriteMulti(oled_addr, 0x40, &SSD1306_Buffer[SSD1306_WIDTH * m], SSD1306_WIDTH);
 	}
 }
 

@@ -235,6 +235,8 @@ void SSD1306_DrawFilledCircle(int16_t x0, int16_t y0, int16_t r, SSD1306_COLOR_t
 #define ssd1306_I2C_TIMEOUT					20000
 #endif
 
+void set_oled_addr(uint8_t addr);
+
 void ssd1306_sel_I2C(I2C_HandleTypeDef *hi2c);
 
 /**
