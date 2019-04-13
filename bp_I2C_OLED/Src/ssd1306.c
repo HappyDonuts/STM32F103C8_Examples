@@ -197,10 +197,62 @@ char SSD1306_Putc(uint8_t ch, FontDef_t* Font, SSD1306_COLOR_t color) {
 }
 
 void SSD1306_Putint(int data, uint8_t slot) {
+
+	char menos_char = ' ';
 	if (data < 0) {
 		data = -data;
-	 	switch (slot)
+		menos_char = '-';
+	}
 
+	int numero = data;
+	int size = 1;
+	while(numero > 9) {
+	  numero =  numero/10;
+	  size++;
+	}
+	char data_char[size];		// String de chars=
+	sprintf(data_char,"%d", data);	// Cada numero del int en un char
+
+	uint16_t x_slot = 0;
+	uint16_t y_slot = 0;
+	uint8_t slot_mini = 0;
+	switch (slot) {
+	case 1:
+		x_slot = 20;
+		y_slot = 0;
+		break;
+	case 2:
+		x_slot = 20;
+		y_slot = 17;
+		break;
+	case 3:
+		x_slot = 20;
+		y_slot = 35;
+		break;
+	case 4:
+		x_slot = 22;
+		y_slot = 53;
+		slot_mini = 1;
+		break;
+	case 5:
+		x_slot = 70;
+		y_slot = 53;
+		slot_mini = 1;
+		break;
+	}
+	if (slot_mini == 1){
+		SSD1306_GotoXY (x_slot,y_slot);
+		SSD1306_Putc (menos_char, &Font_7x10, 1);
+		SSD1306_GotoXY (x_slot+7,y_slot);
+		SSD1306_Puts (data_char, &Font_7x10, 1);
+		SSD1306_UpdateScreen();
+		return;
+	}
+	SSD1306_GotoXY (x_slot,y_slot);
+	SSD1306_Putc (menos_char, &Font_11x18, 1);
+	SSD1306_GotoXY (x_slot+11,y_slot);
+	SSD1306_Puts (data_char, &Font_11x18, 1);
+	SSD1306_UpdateScreen();
 }
 
 char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color) {

@@ -151,6 +151,13 @@ char SSD1306_Putc(uint8_t ch, FontDef_t* Font, SSD1306_COLOR_t color);
 char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color);
 
 /**
+ * @brief  Puts int to internal RAM
+ * @param  data: int to be written
+ * @param  slot: slot to be used. 1, 2, and 3 are large slots. 4 and 5 are small slots
+ */
+void SSD1306_Putint(int data, uint8_t slot);
+
+/**
  * @brief  Draws line on LCD
  * @note   @ref SSD1306_UpdateScreen() must be called after that in order to see updated LCD screen
  * @param  x0: Line X start point. Valid input is 0 to SSD1306_WIDTH - 1

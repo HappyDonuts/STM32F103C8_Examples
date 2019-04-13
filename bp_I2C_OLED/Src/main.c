@@ -115,42 +115,14 @@ int main(void)
   ssd1306_sel_I2C(&hi2c2);
   SSD1306_Init ();
 
-  SSD1306_GotoXY (20,1);
- SSD1306_Puts ("1234567890", &Font_11x18, 1);
-//SSD1306_DrawLine(0, 15, 128, 15, 1 ); // y=15 ultima linea amarilla
 
- int size = 1;
- int16_t data = -1235;
- 	uint8_t negativo = 0;
-
- 	if (data < 0) {	// Si los pulsos
- 		data = -data;
- 		SSD1306_GotoXY (20,16);
- 		SSD1306_Puts("-", &Font_11x18, 1);
- 	}
-
- 	int numero = data;
-
- 	while(numero > 9) {
- 	  numero =  numero/10;
- 	  size++;
- 	}
-
- 	char data_char[size];		// String de chars
-
- 	sprintf(data_char,"%d", data);	// Cada numero del int en un char
-
-  SSD1306_GotoXY (31,16);
-  //SSD1306_Put_uint (data_tx, &Font_11x18, 1);
-  SSD1306_Puts(data_char, &Font_11x18, 1);
-  SSD1306_GotoXY (31,33);
-  SSD1306_Puts (data_char, &Font_11x18, 1);
-  SSD1306_GotoXY (31,52);
-  SSD1306_Puts ("12345", &Font_7x10, 1);
-  SSD1306_GotoXY (31,52);
-  SSD1306_Puts ("67890", &Font_7x10, 1);
-  SSD1306_UpdateScreen(); //display
-
+  int32_t data = -123456;
+  //SSD1306_DrawLine(0, 15, 128, 15, 1 ); // y=15 ultima linea amarilla
+  SSD1306_Putint(data, 1);
+  SSD1306_Putint(data, 2);
+  SSD1306_Putint(data, 3);
+  SSD1306_Putint(data, 4);
+  SSD1306_Putint(data, 5);
   /* USER CODE END 2 */
 
   /* Infinite loop */
