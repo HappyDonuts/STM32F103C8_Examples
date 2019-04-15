@@ -157,6 +157,8 @@ char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color);
  */
 void SSD1306_Putint(int data, uint8_t slot);
 
+void SSD1306_Putfloat(float data, uint8_t decimales, uint8_t slot);
+
 /**
  * @brief  Draws line on LCD
  * @note   @ref SSD1306_UpdateScreen() must be called after that in order to see updated LCD screen

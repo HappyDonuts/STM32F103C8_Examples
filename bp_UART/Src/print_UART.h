@@ -15,5 +15,6 @@ void tx_UART_int_nospace(UART_HandleTypeDef *huart, int data, uint32_t Timeout);
 void tx_UART_int(UART_HandleTypeDef *huart, int data, uint32_t Timeout);
 void tx_UART_float(UART_HandleTypeDef *huart, float data, uint8_t decimales, uint32_t Timeout);
 void tx_UART_byte(UART_HandleTypeDef *huart, uint8_t data, uint32_t Timeout);
+uint8_t size_int(int data);
 
 #endif /* PRINT_UART_H_ */

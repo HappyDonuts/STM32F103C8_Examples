@@ -245,18 +245,52 @@ void SSD1306_Putint(int data, uint8_t slot) {
 		break;
 	}
 	if (slot_mini == 1){
-		SSD1306_GotoXY (x_slot,y_slot);
-		SSD1306_Putc (menos_char, &Font_7x10, 1);
-		SSD1306_GotoXY (x_slot+7,y_slot);
-		SSD1306_Puts (data_char, &Font_7x10, 1);
-		SSD1306_UpdateScreen();
+		SSD1306_GotoXY (x_slot,y_slot);				// Select x and y from the selected slot
+		SSD1306_Puts ("       ", &Font_7x10, 1);	// Reset the slot before writing (7 blank chars for small slots)
+		SSD1306_GotoXY (x_slot,y_slot);				// Come back to the initial position
+		SSD1306_Putc (menos_char, &Font_7x10, 1);	// Write minus char if necessary
+		SSD1306_GotoXY (x_slot+7,y_slot);			// Shif a char correspondig to the minus char
+		SSD1306_Puts (data_char, &Font_7x10, 1);	// Write the value
+//		SSD1306_UpdateScreen();						// Update the screen
 		return;
 	}
+	SSD1306_GotoXY (x_slot,y_slot);
+	SSD1306_Puts ("         ", &Font_11x18, 1);		// Reset the slot before writing (9 blank chars for small slots)
 	SSD1306_GotoXY (x_slot,y_slot);
 	SSD1306_Putc (menos_char, &Font_11x18, 1);
 	SSD1306_GotoXY (x_slot+11,y_slot);
 	SSD1306_Puts (data_char, &Font_11x18, 1);
-	SSD1306_UpdateScreen();
+//	SSD1306_UpdateScreen();
+}
+
+void SSD1306_Putfloat(float data, uint8_t decimales, uint8_t slot) {
+	char menos_char = ' ';
+	if (data < 0) {
+		data = -data;
+		menos_char = '-';
+	}
+
+	int potencia_10 = 1;
+		for (uint8_t i=0; i<decimales; i++){
+			potencia_10 = potencia_10*10;
+	}
+
+	int p_entera = data/1;
+	int p_decimal = ((data - p_entera)*potencia_10)/1;
+
+	int numero = p_entera;
+	int size = 1;
+	while(numero > 9) {
+	  numero =  numero/10;
+	  size++;
+	}
+	char data_char[size];		// String de chars=
+	sprintf(data_char,"%d", p_entera);	// Cada numero del int en un char
+
+	numero = p_decimal;
+	size=1
+
+
 }
 
 char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color) {

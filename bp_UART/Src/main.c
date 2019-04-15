@@ -44,6 +44,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "print_UART.h"
+#include "math.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,9 +119,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Delay(2000);
-	  	//HAL_UART_Transmit(&huart1, mensaje, sizeof(mensaje), 10);
-	  tx_UART_int(&huart1, 1994, 10);
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

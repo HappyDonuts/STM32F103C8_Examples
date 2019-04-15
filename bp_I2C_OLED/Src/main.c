@@ -116,13 +116,17 @@ int main(void)
   ssd1306_sel_I2C(&hi2c2);
   SSD1306_Init ();
 
-  int32_t data = -1236;
+  //int32_t data = -12345678;
+  float data = -332.123456;
 
-  SSD1306_Putint(data, 1);
-  SSD1306_Putint(data, 2);
-  SSD1306_Putint(data, 3);
-  SSD1306_Putint(data, 4);
-  SSD1306_Putint(data, 5);
+//  SSD1306_Putint(data, 1);
+//  SSD1306_Putint(data, 2);
+//  SSD1306_Putint(data, 3);
+//  SSD1306_Putint(data, 4);
+//  SSD1306_Putint(data, 5);
+
+  SSD1306_Putfloat(data, 4, 1);
+  SSD1306_UpdateScreen();
   /* USER CODE END 2 */
 
   /* Infinite loop */
