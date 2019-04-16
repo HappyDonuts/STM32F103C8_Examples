@@ -21,6 +21,7 @@
    ----------------------------------------------------------------------
  */
 #include "ssd1306.h"
+#include "math.h"
 
 I2C_HandleTypeDef hi2c_current;
 uint8_t oled_addr;
@@ -208,12 +209,7 @@ void SSD1306_Putint(int data, uint8_t slot) {
 		menos_char = '-';
 	}
 
-	int numero = data;
-	int size = 1;
-	while(numero > 9) {
-	  numero =  numero/10;
-	  size++;
-	}
+	int size = size_int(data);
 	char data_char[size];		// String de chars=
 	sprintf(data_char,"%d", data);	// Cada numero del int en un char
 
@@ -263,34 +259,104 @@ void SSD1306_Putint(int data, uint8_t slot) {
 //	SSD1306_UpdateScreen();
 }
 
-void SSD1306_Putfloat(float data, uint8_t decimales, uint8_t slot) {
-	char menos_char = ' ';
+char* double_str(double data, uint8_t decimales){
+	char negativo = ' ';
 	if (data < 0) {
 		data = -data;
-		menos_char = '-';
+		negativo = '-';
 	}
 
-	int potencia_10 = 1;
-		for (uint8_t i=0; i<decimales; i++){
-			potencia_10 = potencia_10*10;
+	int potencia_10 = pow(10, decimales);
+	double p_entera_f = trunc(data);
+	double p_decimal_f = data*potencia_10 - p_entera_f*potencia_10;
+	int p_entera = p_entera_f;
+	int p_decimal = p_decimal_f;
+
+	int size = size_int(p_entera);
+	char p_entera_char[size];		// String de chars
+	sprintf(p_entera_char,"%d", p_entera);	// Cada numero del int en un char
+
+	char p_decimal_char[decimales];
+	size = size_int(p_decimal);
+	if (decimales>size){
+		p_decimal = p_decimal + pow(10,decimales-1);
+	}
+	sprintf(p_decimal_char,"%d", p_decimal);
+	for(uint8_t i=0; i<(decimales-size);i++){
+		p_decimal_char[i] = '0';
 	}
 
-	int p_entera = data/1;
-	int p_decimal = ((data - p_entera)*potencia_10)/1;
+	uint8_t total_size = sizeof(p_entera_char)+decimales+2;
+	static char float_str[10];
 
-	int numero = p_entera;
-	int size = 1;
-	while(numero > 9) {
-	  numero =  numero/10;
-	  size++;
+	for(uint8_t i= 0; i<11; i++){
+		if (i==0){
+			float_str[i] = negativo;
+		} else if((i>0) && (i<sizeof(p_entera_char)+1)){
+			float_str[i] = p_entera_char[i-1];
+		} else if (i == sizeof(p_entera_char)+1){
+			float_str[i] = '.';
+		} else if ((i> sizeof(p_entera_char)+1) && (i<total_size)){
+			float_str[i] = p_decimal_char[i-(sizeof(p_entera_char)+2)];
+		} else {float_str[i] = ' ';}
 	}
-	char data_char[size];		// String de chars=
-	sprintf(data_char,"%d", p_entera);	// Cada numero del int en un char
+	return float_str;
+}
 
-	numero = p_decimal;
-	size=1
+void SSD1306_Putdouble(float data, uint8_t decimales, uint8_t slot) {
+	char* float_str = double_str(data, decimales);
 
+	uint16_t x_slot = 0;
+	uint16_t y_slot = 0;
+	uint8_t slot_mini = 0;
+	switch (slot) {
+	case 1:
+		x_slot = 2;
+		y_slot = 0;
+		break;
+	case 2:
+		x_slot = 2;
+		y_slot = 17;
+		break;
+	case 3:
+		x_slot = 2;
+		y_slot = 35;
+		break;
+	case 4:
+		x_slot = 2;
+		y_slot = 53;
+		slot_mini = 1;
+		break;
+	case 5:
+		x_slot = 60;
+		y_slot = 53;
+		slot_mini = 1;
+		break;
+	}
+	if (slot_mini == 1){
+		SSD1306_GotoXY (x_slot,y_slot);				// Select x and y from the selected slot
+		SSD1306_Puts ("       ", &Font_7x10, 1);	// Reset the slot before writing (7 blank chars for small slots)
+		SSD1306_GotoXY (x_slot,y_slot);				// Come back to the initial position
+		SSD1306_Puts (float_str, &Font_7x10, 1);	// Write the value
+//		SSD1306_UpdateScreen();						// Update the screen
+		return;
+	}
+	SSD1306_GotoXY (x_slot,y_slot);
+	SSD1306_Puts ("         ", &Font_11x18, 1);		// Reset the slot before writing (9 blank chars for small slots)
+	SSD1306_GotoXY (x_slot,y_slot);
+	SSD1306_Puts (float_str, &Font_11x18, 1);
+//	SSD1306_UpdateScreen();
+}
 
+uint8_t size_int(int data){
+	uint8_t size;
+	if (data==0){
+		size = 1;
+	}
+	else {
+		size = floor(log10(data))+1;
+	}
+	return size;
 }
 
 char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color) {

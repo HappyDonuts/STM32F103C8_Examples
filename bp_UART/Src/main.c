@@ -44,7 +44,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "print_UART.h"
-#include "math.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -112,7 +111,13 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  double data_d = -1.0004;
+  int data_i = -123;
+  uint8_t data_b = 0b10011010;
 
+  tx_UART_double(&huart1, data_d, 4, 10);
+  tx_UART_int(&huart1, data_i, 10);
+  tx_UART_byte(&huart1, data_b, 10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
