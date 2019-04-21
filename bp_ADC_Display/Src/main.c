@@ -70,7 +70,8 @@ I2C_HandleTypeDef hi2c2;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+static uint16_t data_adc;
+static double voltage;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -125,10 +126,7 @@ int main(void)
   SSD1306_Init ();
 
   HAL_ADCEx_Calibration_Start(&hadc1);
-  static uint16_t data_adc;
 
-  float data = 3.0045;
-  tx_UART_float(&huart1, data, 3, 10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -139,6 +137,9 @@ int main(void)
 	  HAL_ADC_PollForConversion(&hadc1, 1000);
 	  data_adc = HAL_ADC_GetValue(&hadc1);
 	  HAL_ADC_Stop(&hadc1);
+	  voltage = data_adc;
+	  voltage = voltage*3.3/4095;
+	  SSD1306_Putdouble(voltage, 3, 2);
 	  SSD1306_Putint(data_adc, 1);
 	  SSD1306_UpdateScreen();
 
