@@ -8,3 +8,12 @@ bp_LED_Button/.settings/language.settings.xml
 bp_PWM_Button/.settings/language.settings.xml
 bp_UART/.settings/language.settings.xml
 bp_UART_MIDI_Tx/.settings/language.settings.xml
+bp_ADC_Display/.settings/language.settings.xml
+bp_ADC_Test/.settings/language.settings.xml
+bp_Capacitance_Meter/.settings/language.settings.xml
+bp_I2C_OLED/.settings/language.settings.xml
+bp_LED_Blink/.settings/language.settings.xml
+bp_LED_Button/.settings/language.settings.xml
+bp_PWM_Button/.settings/language.settings.xml
+bp_UART/.settings/language.settings.xml
+bp_UART_MIDI_Tx/.settings/language.settings.xml
