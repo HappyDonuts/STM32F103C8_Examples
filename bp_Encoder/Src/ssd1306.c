@@ -251,11 +251,11 @@ void SSD1306_Putint(int data, uint8_t slot) {
 		return;
 	}
 	SSD1306_GotoXY (x_slot,y_slot);
-	SSD1306_Puts ("         ", &Font_11x18, 1);		// Reset the slot before writing (9 blank chars for small slots)
+	SSD1306_Puts ("         ", &Font_16x26, 1);		// Reset the slot before writing (9 blank chars for small slots)
 	SSD1306_GotoXY (x_slot,y_slot);
-	SSD1306_Putc (menos_char, &Font_11x18, 1);
-	SSD1306_GotoXY (x_slot+11,y_slot);
-	SSD1306_Puts (data_char, &Font_11x18, 1);
+	SSD1306_Putc (menos_char, &Font_16x26, 1);
+	SSD1306_GotoXY (x_slot+16,y_slot);
+	SSD1306_Puts (data_char, &Font_16x26, 1);
 //	SSD1306_UpdateScreen();
 }
 

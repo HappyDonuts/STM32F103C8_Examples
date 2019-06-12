@@ -121,14 +121,16 @@ int main(void)
  	nota_off[1] = 0;
  	nota_off[2] = 0;
 
- 	for(uint8_t i=1;i<89;i++){
- 		nota_on[1]= nota_on[1]+1;
- 		HAL_UART_Transmit(&huart1, nota_on, sizeof(nota_on), 10);
-		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-		HAL_Delay(500);
-		HAL_UART_Transmit(&huart1, nota_off, sizeof(nota_off), 10);
-		HAL_Delay(500);
- 	}
+ 	nota_on[1] = nota_on[1]+30;
+
+// 	for(uint8_t i=1;i<89;i++){
+// 		nota_on[1]= nota_on[1]+1;
+// 		HAL_UART_Transmit(&huart1, nota_on, sizeof(nota_on), 10);
+//		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+//		HAL_Delay(500);
+//		HAL_UART_Transmit(&huart1, nota_off, sizeof(nota_off), 10);
+//		HAL_Delay(500);
+// 	}
    /* USER CODE END 2 */
 
    /* Infinite loop */
@@ -136,7 +138,12 @@ int main(void)
    while (1)
    {
 
-
+HAL_UART_Transmit(&huart1, nota_on, sizeof(nota_on),1000);
+HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
+HAL_Delay(2000);
+HAL_UART_Transmit(&huart1, nota_off, sizeof(nota_off),1000);
+HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
+HAL_Delay(2000);
  	// Tx un mensaje MIDI, note on, cada 2 segundos
 
      /* USER CODE END WHILE */

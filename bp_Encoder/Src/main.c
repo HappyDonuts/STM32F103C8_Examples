@@ -67,9 +67,14 @@ I2C_HandleTypeDef hi2c2;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
+UART_HandleTypeDef huart1;
+
 /* USER CODE BEGIN PV */
 int16_t n_pulsos_a = 0;
 int16_t n_pulsos_b = 0;
+
+int16_t prev_a = 0;
+int16_t prev_b = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -78,6 +83,7 @@ static void MX_GPIO_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -118,6 +124,7 @@ int main(void)
   MX_I2C2_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   set_oled_addr(0x78);
   ssd1306_sel_I2C(&hi2c2);
@@ -126,6 +133,8 @@ int main(void)
   SSD1306_UpdateScreen();
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_2);
   HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_2);
+
+  uint8_t datos[2];
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -138,15 +147,34 @@ int main(void)
 		  n_pulsos_a = 0;
 		  TIM2->CNT = 0;
 	  }
+	  if (n_pulsos_a > 100){
+		  n_pulsos_a = 100;
+		  TIM2->CNT = 400;
+	  }
 	  n_pulsos_b = (TIM3->CNT);
 	  n_pulsos_b = n_pulsos_b/4;
 	  if(n_pulsos_b < 0){
 		  n_pulsos_b = 0;
 		  TIM3->CNT = 0;
 	  }
+	  if (n_pulsos_b > 100){
+		  n_pulsos_b = 100;
+		  TIM3->CNT = 400;
+	  }
+
+
+
+	  if ((prev_a != n_pulsos_a) || (prev_b != n_pulsos_b)){
+		  datos[0] = n_pulsos_a;
+		  datos[1] = n_pulsos_b;
+		  prev_a = n_pulsos_a;
+		  prev_b = n_pulsos_b;
+		  HAL_UART_Transmit(&huart1, datos, sizeof(datos), 10);
+		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	  }
 
 	  SSD1306_Putint(n_pulsos_a, 1);
-	  SSD1306_Putint(n_pulsos_b, 2);
+	  SSD1306_Putint(n_pulsos_b, 3);
 	  SSD1306_UpdateScreen();
 	  HAL_Delay(100);
     /* USER CODE END WHILE */
@@ -321,6 +349,39 @@ static void MX_TIM3_Init(void)
   /* USER CODE BEGIN TIM3_Init 2 */
 
   /* USER CODE END TIM3_Init 2 */
+
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
 
 }
 
