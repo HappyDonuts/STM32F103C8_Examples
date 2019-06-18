@@ -66,6 +66,7 @@ I2C_HandleTypeDef hi2c2;
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart1;
 
@@ -75,6 +76,10 @@ int16_t n_pulsos_b = 0;
 
 int16_t prev_a = 0;
 int16_t prev_b = 0;
+
+uint8_t velocidad[1];
+uint8_t cuenta = 0;
+int steps = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -84,8 +89,10 @@ static void MX_I2C2_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
-
+void init_resistencia();
+void resistencia(uint8_t valor);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -125,7 +132,13 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_USART1_UART_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
+  init_resistencia();
+  HAL_Delay(200);
+  resistencia(50);
+
   set_oled_addr(0x78);
   ssd1306_sel_I2C(&hi2c2);
   SSD1306_Init ();
@@ -161,8 +174,6 @@ int main(void)
 		  n_pulsos_b = 100;
 		  TIM3->CNT = 400;
 	  }
-
-
 
 	  if ((prev_a != n_pulsos_a) || (prev_b != n_pulsos_b)){
 		  datos[0] = n_pulsos_a;
@@ -353,6 +364,51 @@ static void MX_TIM3_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 31;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 9;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -402,6 +458,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(INC_GPIO_Port, INC_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(U_D_GPIO_Port, U_D_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -421,10 +483,57 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : INC_Pin U_D_Pin */
+  GPIO_InitStruct.Pin = INC_Pin|U_D_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */
+void init_resistencia(){
+	steps = 200;
+	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_8, 0);
+	HAL_TIM_Base_Start_IT(&htim4);
+}
 
+void resistencia(uint8_t valor){
+	static int resist = 0;
+	steps = 2*(valor - resist);
+
+	if (steps < 0){
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_8, 0);
+		steps = -steps;
+	}
+	else {
+		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_8, 1);
+	}
+	 HAL_TIM_Base_Start_IT(&htim4);
+	 resist = valor;
+
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	if (htim == &htim4){
+		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+		cuenta++;
+		if (cuenta >= steps){
+			cuenta = 0;
+			HAL_TIM_Base_Stop_IT(&htim4);
+
+		}
+	}
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	if (huart == &huart1){
+			int vel = velocidad[0]*100/127;
+			resistencia(vel);
+		}
+		__HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE); // Volvemos a activar las interrupciones de la UART1
+}
 /* USER CODE END 4 */
 
 /**
