@@ -1,5 +1,5 @@
 
-LED_Blink.elf:     file format elf32-littlearm
+bp_LED_Blink.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -21,11 +21,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   8 .ARM.attributes 00000029  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
-  9 .debug_info   00007569  00000000  00000000  00020035  2**0
+  9 .debug_info   0000756c  00000000  00000000  00020035  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 000014cc  00000000  00000000  0002759e  2**0
+ 10 .debug_abbrev 000014cc  00000000  00000000  000275a1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000e80  00000000  00000000  00028a6a  2**0
+ 11 .debug_loc    00000e80  00000000  00000000  00028a6d  2**0
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_aranges 00000320  00000000  00000000  000298f0  2**3
                   CONTENTS, READONLY, DEBUGGING
@@ -33,11 +33,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_line   00001efd  00000000  00000000  0002a030  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_str    00001509  00000000  00000000  0002bf2d  2**0
+ 15 .debug_str    0000150c  00000000  00000000  0002bf2d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .comment      0000007c  00000000  00000000  0002d436  2**0
+ 16 .comment      0000007c  00000000  00000000  0002d439  2**0
                   CONTENTS, READONLY
- 17 .debug_frame  00000690  00000000  00000000  0002d4b4  2**2
+ 17 .debug_frame  00000690  00000000  00000000  0002d4b8  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1577,8 +1577,8 @@ static void MX_GPIO_Init(void)
  8000a32:	4620      	mov	r0, r4
  8000a34:	f44f 5100 	mov.w	r1, #8192	; 0x2000
  8000a38:	f7ff fd23 	bl	8000482 <HAL_GPIO_TogglePin>
-	  HAL_Delay(300);
- 8000a3c:	f44f 7096 	mov.w	r0, #300	; 0x12c
+	  HAL_Delay(600);
+ 8000a3c:	f44f 7016 	mov.w	r0, #600	; 0x258
  8000a40:	f7ff fbcc 	bl	80001dc <HAL_Delay>
  8000a44:	e7f5      	b.n	8000a32 <main+0x62>
  8000a46:	bf00      	nop
