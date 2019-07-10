@@ -8,7 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include startup/subdir.mk
+-include Startup/subdir.mk
 -include Src/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include subdir.mk
@@ -37,11 +37,10 @@ bp_LED_Blink.list \
 all: bp_LED_Blink.elf secondary-outputs
 
 # Tool invocations
-bp_LED_Blink.elf: $(OBJS) $(USER_OBJS) ../STM32F103C8_FLASH.ld
-	arm-none-eabi-gcc -o "bp_LED_Blink.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"../STM32F103C8_FLASH.ld" --specs=nosys.specs -Wl,-Map="bp_LED_Blink.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+bp_LED_Blink.elf: $(OBJS) $(USER_OBJS) D:\Users\Javi\GitHub\STM32_F103C8\bp_LED_Blink\STM32F103C8TX_FLASH.ld
+	arm-none-eabi-gcc -o "bp_LED_Blink.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Users\Javi\GitHub\STM32_F103C8\bp_LED_Blink\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bp_LED_Blink.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
-	$(MAKE) --no-print-directory post-build
 
 default.size.stdout: $(EXECUTABLES)
 	arm-none-eabi-size  $(EXECUTABLES)
@@ -58,13 +57,9 @@ clean:
 	-$(RM) *
 	-@echo ' '
 
-post-build:
-	arm-none-eabi-objcopy.exe -O ihex "bp_LED_Blink.elf" "bp_LED_Blink.hex"
-	-@echo ' '
-
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 .PHONY: all clean dependents
-.SECONDARY: post-build
+.SECONDARY:
 
 -include ../makefile.targets
