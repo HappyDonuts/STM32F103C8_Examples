@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "print_UART.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,10 +95,13 @@ int main(void)
   double data_d = -1.0004;
   int data_i = -123;
   uint8_t data_b = 0b10011010;
+  uint8_t data_chars[1];
+  data_chars[0] = 0b1001000;
 
   tx_UART_double(&huart1, data_d, 4, 10);
   tx_UART_int(&huart1, data_i, 10);
   tx_UART_byte(&huart1, data_b, 10);
+  HAL_UART_Transmit(&huart1, data_chars, sizeof(data_chars), 10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
