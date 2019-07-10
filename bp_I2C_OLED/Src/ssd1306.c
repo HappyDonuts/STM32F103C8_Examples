@@ -218,15 +218,15 @@ void SSD1306_Putint(int data, uint8_t slot) {
 	uint8_t slot_mini = 0;
 	switch (slot) {
 	case 1:
-		x_slot = 20;
+		x_slot = 2;
 		y_slot = 0;
 		break;
 	case 2:
-		x_slot = 20;
+		x_slot = 2;
 		y_slot = 17;
 		break;
 	case 3:
-		x_slot = 20;
+		x_slot = 2;
 		y_slot = 35;
 		break;
 	case 4:
