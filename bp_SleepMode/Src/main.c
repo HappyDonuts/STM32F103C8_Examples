@@ -94,10 +94,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   __HAL_RCC_PWR_CLK_ENABLE();
 
-  HAL_TIM_Base_Start_IT(&htim2);
-  HAL_TIM_Base_Stop_IT(&htim2);
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
-
 
   HAL_Delay(5000);
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
