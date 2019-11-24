@@ -8,7 +8,7 @@ void tx_UART_int(UART_HandleTypeDef *huart, int data, uint32_t Timeout) {
 		negativo = 1;
 	}
 
-	uint8_t size = size_int(data);
+	uint8_t size = size_int_oled(data);
 	char data_char[size];		// String de chars
 	sprintf(data_char,"%d", data);	// Cada numero del int en un char
 
@@ -40,12 +40,12 @@ void tx_UART_double(UART_HandleTypeDef *huart, double data, uint8_t decimal_p, u
 	int p_entera = p_entera_f;
 	int p_decimal = p_decimal_f;
 
-	int size = size_int(p_entera);
+	int size = size_int_oled(p_entera);
 	char p_entera_char[size];		// String de chars
 	sprintf(p_entera_char,"%d", p_entera);	// Cada numero del int en un char
 
 	char p_decimal_char[decimal_p];
-	size = size_int(p_decimal);
+	size = size_int_oled(p_decimal);
 	if (decimal_p>size){
 		p_decimal = p_decimal + pow(10,decimal_p-1);
 	}
@@ -90,7 +90,7 @@ void tx_UART_byte(UART_HandleTypeDef *huart, uint8_t data, uint32_t Timeout){
 	HAL_UART_Transmit(huart, byte_str, sizeof(byte_str), 10);
 }
 
-uint8_t size_int(int data){
+uint8_t size_int_oled(int data){
 	uint8_t size;
 	if (data==0){
 		size = 1;

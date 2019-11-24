@@ -209,7 +209,7 @@ void SSD1306_Putint(int data, uint8_t slot) {
 		menos_char = '-';
 	}
 
-	int size = size_int(data);
+	int size = size_int_oled(data);
 	char data_char[size];		// String de chars=
 	sprintf(data_char,"%d", data);	// Cada numero del int en un char
 
@@ -272,12 +272,12 @@ char* double_str(double data, uint8_t decimales){
 	int p_entera = p_entera_f;
 	int p_decimal = p_decimal_f;
 
-	int size = size_int(p_entera);
+	int size = size_int_oled(p_entera);
 	char p_entera_char[size];		// String de chars
 	sprintf(p_entera_char,"%d", p_entera);	// Cada numero del int en un char
 
 	char p_decimal_char[decimales];
-	size = size_int(p_decimal);
+	size = size_int_oled(p_decimal);
 	if (decimales>size){
 		p_decimal = p_decimal + pow(10,decimales-1);
 	}
@@ -348,7 +348,7 @@ void SSD1306_Putdouble(float data, uint8_t decimales, uint8_t slot) {
 //	SSD1306_UpdateScreen();
 }
 
-uint8_t size_int(int data){
+uint8_t size_int_oled(int data){
 	uint8_t size;
 	if (data==0){
 		size = 1;

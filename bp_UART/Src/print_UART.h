@@ -44,6 +44,6 @@ void tx_UART_byte(UART_HandleTypeDef *huart, uint8_t data, uint32_t Timeout);
  * @param  data: int te be processed
  * @retval Number of digits of the int
  */
-uint8_t size_int(int data);
+uint8_t size_int_oled(int data);
 
 #endif /* PRINT_UART_H_ */
