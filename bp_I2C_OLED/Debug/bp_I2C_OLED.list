@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  17 .debug_line   00007b30  00000000  00000000  00044ceb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0006c1b5  00000000  00000000  0004c81b  2**0
+ 18 .debug_str    0006c1ba  00000000  00000000  0004c81b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000b89d0  2**0
+ 19 .comment      0000007b  00000000  00000000  000b89d5  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000258c  00000000  00000000  000b8a4c  2**2
+ 20 .debug_frame  0000258c  00000000  00000000  000b8a50  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -6190,9 +6190,9 @@ void SSD1306_Putint(int data, uint8_t slot) {
  80029d2:	767b      	strb	r3, [r7, #25]
 	}
 
-	int size = size_int(data);
+	int size = size_int_oled(data);
  80029d4:	6878      	ldr	r0, [r7, #4]
- 80029d6:	f000 faa3 	bl	8002f20 <size_int>
+ 80029d6:	f000 faa3 	bl	8002f20 <size_int_oled>
  80029da:	4603      	mov	r3, r0
  80029dc:	617b      	str	r3, [r7, #20]
 	char data_char[size];		// String de chars=
@@ -6487,9 +6487,9 @@ char* double_str(double data, uint8_t decimales){
  8002c1c:	4603      	mov	r3, r0
  8002c1e:	64bb      	str	r3, [r7, #72]	; 0x48
 
-	int size = size_int(p_entera);
+	int size = size_int_oled(p_entera);
  8002c20:	6af8      	ldr	r0, [r7, #44]	; 0x2c
- 8002c22:	f000 f97d 	bl	8002f20 <size_int>
+ 8002c22:	f000 f97d 	bl	8002f20 <size_int_oled>
  8002c26:	4603      	mov	r3, r0
  8002c28:	62bb      	str	r3, [r7, #40]	; 0x28
 	char p_entera_char[size];		// String de chars
@@ -6554,9 +6554,9 @@ char* double_str(double data, uint8_t decimales){
  8002cbe:	466b      	mov	r3, sp
  8002cc0:	3300      	adds	r3, #0
  8002cc2:	61bb      	str	r3, [r7, #24]
-	size = size_int(p_decimal);
+	size = size_int_oled(p_decimal);
  8002cc4:	6cb8      	ldr	r0, [r7, #72]	; 0x48
- 8002cc6:	f000 f92b 	bl	8002f20 <size_int>
+ 8002cc6:	f000 f92b 	bl	8002f20 <size_int_oled>
  8002cca:	4603      	mov	r3, r0
  8002ccc:	62bb      	str	r3, [r7, #40]	; 0x28
 	if (decimales>size){
@@ -6876,9 +6876,9 @@ void SSD1306_Putdouble(float data, uint8_t decimales, uint8_t slot) {
  8002f18:	20000010 	.word	0x20000010
  8002f1c:	08005300 	.word	0x08005300
 
-08002f20 <size_int>:
+08002f20 <size_int_oled>:
 
-uint8_t size_int(int data){
+uint8_t size_int_oled(int data){
  8002f20:	b590      	push	{r4, r7, lr}
  8002f22:	b085      	sub	sp, #20
  8002f24:	af00      	add	r7, sp, #0
@@ -6887,11 +6887,11 @@ uint8_t size_int(int data){
 	if (data==0){
  8002f28:	687b      	ldr	r3, [r7, #4]
  8002f2a:	2b00      	cmp	r3, #0
- 8002f2c:	d102      	bne.n	8002f34 <size_int+0x14>
+ 8002f2c:	d102      	bne.n	8002f34 <size_int_oled+0x14>
 		size = 1;
  8002f2e:	2301      	movs	r3, #1
  8002f30:	73fb      	strb	r3, [r7, #15]
- 8002f32:	e01b      	b.n	8002f6c <size_int+0x4c>
+ 8002f32:	e01b      	b.n	8002f6c <size_int_oled+0x4c>
 	}
 	else {
 		size = floor(log10(data))+1;
@@ -6908,7 +6908,7 @@ uint8_t size_int(int data){
  8002f4c:	4621      	mov	r1, r4
  8002f4e:	f000 fe2b 	bl	8003ba8 <floor>
  8002f52:	f04f 0200 	mov.w	r2, #0
- 8002f56:	4b08      	ldr	r3, [pc, #32]	; (8002f78 <size_int+0x58>)
+ 8002f56:	4b08      	ldr	r3, [pc, #32]	; (8002f78 <size_int_oled+0x58>)
  8002f58:	f7fd f900 	bl	800015c <__adddf3>
  8002f5c:	4603      	mov	r3, r0
  8002f5e:	460c      	mov	r4, r1

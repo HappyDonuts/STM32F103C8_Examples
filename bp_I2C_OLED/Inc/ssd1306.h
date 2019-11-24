@@ -51,6 +51,7 @@ SDA        |PB7          |Serial data line
 
 #include "stdlib.h"
 #include "string.h"
+#include <stdio.h>
 
 
 /* I2C address */
@@ -158,7 +159,7 @@ char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color);
 void SSD1306_Putint(int data, uint8_t slot);
 
 void SSD1306_Putdouble(float data, uint8_t decimales, uint8_t slot);
-uint8_t size_int(int data);
+uint8_t size_int_oled(int data);
 char* double_str(double data, uint8_t decimales);
 /**
  * @brief  Draws line on LCD

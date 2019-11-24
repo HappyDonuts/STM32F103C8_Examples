@@ -9,7 +9,7 @@ ssd1306.c:173:6:SSD1306_Putc	32	static
 ssd1306.c:204:6:SSD1306_Putint	48	dynamic
 ssd1306.c:262:7:double_str	112	dynamic
 ssd1306.c:306:6:SSD1306_Putdouble	32	static
-ssd1306.c:351:9:size_int	32	static
+ssd1306.c:351:9:size_int_oled	32	static
 ssd1306.c:362:6:SSD1306_Puts	24	static
 ssd1306.c:379:6:SSD1306_DrawLine	40	static
 ssd1306.c:463:6:SSD1306_DrawRectangle	32	static

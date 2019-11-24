@@ -1,0 +1,9 @@
+timing.c:19:11:timing_new	24	static
+timing.c:25:6:timing_init	24	static
+timing.c:40:15:timing_start_us	16	static
+timing.c:50:17:timing_get_us	40	static
+timing.c:61:17:timing_self_timer	32	static
+timing.c:76:15:timing_start_ms	16	static
+timing.c:85:17:timing_get_ms	32	static
+timing.c:93:15:timing_start_s	16	static
+timing.c:102:17:timing_get_s	32	static

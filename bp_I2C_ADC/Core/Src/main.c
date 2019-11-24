@@ -97,6 +97,7 @@ int main(void)
  ssd1306_1 = ssd1306_new(&hi2c1, 0x79);
 
  uint16_t voltage = ads_read(ads_1, 4, 0);
+
  SSD1306_Putint(ssd1306_1, voltage, 1);
  SSD1306_UpdateScreen(ssd1306_1);
   /* USER CODE END 2 */
