@@ -1652,6 +1652,7 @@ int main(void)
  8001188:	f7ff ff88 	bl	800109c <ads_read>
  800118c:	4603      	mov	r3, r0
  800118e:	80fb      	strh	r3, [r7, #6]
+
  SSD1306_Putint(ssd1306_1, voltage, 1);
  8001190:	4b08      	ldr	r3, [pc, #32]	; (80011b4 <main+0x68>)
  8001192:	681b      	ldr	r3, [r3, #0]

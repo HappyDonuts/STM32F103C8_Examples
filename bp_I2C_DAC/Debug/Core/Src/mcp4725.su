@@ -1,0 +1,3 @@
+mcp4725.c:19:8:mcp_new	24	static
+mcp4725.c:32:6:mcp_init	24	static
+mcp4725.c:43:6:mcp_write	24	static
