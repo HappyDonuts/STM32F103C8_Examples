@@ -32,6 +32,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 bp_Button.list \
 
+OBJCOPY_BIN += \
+bp_Button.bin \
+
 
 # All Target
 all: bp_Button.elf secondary-outputs
@@ -52,12 +55,17 @@ bp_Button.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+bp_Button.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "bp_Button.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

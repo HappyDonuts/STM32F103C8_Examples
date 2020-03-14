@@ -96,7 +96,7 @@ int main(void)
  ads_1 = ads_new(&hi2c1, 0x48);
  ssd1306_1 = ssd1306_new(&hi2c1, 0x79);
 
- uint16_t voltage = ads_read(ads_1, 4, 0);
+ uint16_t voltage = ads_read(ads_1, 0, 0);
 
  SSD1306_Putint(ssd1306_1, voltage, 1);
  SSD1306_UpdateScreen(ssd1306_1);
@@ -106,6 +106,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  HAL_Delay(300);
+	  voltage = ads_read(ads_1, 0, 0);
+
+	  SSD1306_Putint(ssd1306_1, voltage, 1);
+	  SSD1306_UpdateScreen(ssd1306_1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

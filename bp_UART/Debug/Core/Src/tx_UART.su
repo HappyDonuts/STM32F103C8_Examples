@@ -1,0 +1,5 @@
+tx_UART.c:20:9:tx_UART_new	24	static
+tx_UART.c:32:6:tx_UART_init	16	static
+tx_UART.c:42:6:tx_UART_int	48	dynamic
+tx_UART.c:75:6:tx_UART_double	56	dynamic
+tx_UART.c:112:9:tx_UART_digits	32	static

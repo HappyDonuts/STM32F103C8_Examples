@@ -92,16 +92,18 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   mcp_1 = mcp_new(&hi2c1, 0xC0); //0xC4 - other address
+  HAL_Delay(200);
+  mcp_write(mcp_1, 4095, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Delay(2000);
-	  mcp_write(mcp_1, 1000, 1);
-	  HAL_Delay(2000);
-	  mcp_write(mcp_1, 4095, 1);
+//	  HAL_Delay(2000);
+//	  mcp_write(mcp_1, 0, 1);
+//	  HAL_Delay(2000);
+//	  mcp_write(mcp_1, 4095, 1);
 
     /* USER CODE END WHILE */
 

@@ -8,9 +8,9 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Startup/subdir.mk
--include Src/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
+-include Core/Startup/subdir.mk
+-include Core/Src/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -32,6 +32,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 bp_UART.list \
 
+OBJCOPY_BIN += \
+bp_UART.bin \
+
 
 # All Target
 all: bp_UART.elf secondary-outputs
@@ -52,12 +55,17 @@ bp_UART.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+bp_UART.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "bp_UART.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

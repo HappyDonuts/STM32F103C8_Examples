@@ -1,0 +1,2 @@
+LED_Blink.c:25:6:main_s	8	static
+LED_Blink.c:40:6:HAL_GPIO_EXTI_Callback	16	static

@@ -32,6 +32,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 bp_LED_Blink.list \
 
+OBJCOPY_BIN += \
+bp_LED_Blink.bin \
+
 
 # All Target
 all: bp_LED_Blink.elf secondary-outputs
@@ -52,12 +55,17 @@ bp_LED_Blink.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+bp_LED_Blink.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "bp_LED_Blink.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:
