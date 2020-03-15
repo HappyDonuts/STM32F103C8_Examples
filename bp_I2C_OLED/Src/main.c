@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ssd1306.h"
+#include "oled_test.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,7 +70,6 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
-  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -92,20 +91,7 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-	set_oled_addr(0x78);
-	ssd1306_sel_I2C(&hi2c1);
-	SSD1306_Init ();
-
-	double data = -3.0004;
-	int data_i = -12003;
-	uint8_t decimales = 4;
-
-	SSD1306_Putdouble(data, decimales, 1);
-	SSD1306_Putdouble(data, decimales, 2);
-	SSD1306_Putint(data_i, 3);
-	SSD1306_Putdouble(data, decimales, 4);
-	SSD1306_Putdouble(data, decimales, 5);
-	SSD1306_UpdateScreen();
+  main_s();
   /* USER CODE END 2 */
 
   /* Infinite loop */

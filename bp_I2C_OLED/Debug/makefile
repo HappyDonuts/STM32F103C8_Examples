@@ -32,6 +32,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 bp_I2C_OLED.list \
 
+OBJCOPY_BIN += \
+bp_I2C_OLED.bin \
+
 
 # All Target
 all: bp_I2C_OLED.elf secondary-outputs
@@ -52,12 +55,17 @@ bp_I2C_OLED.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+bp_I2C_OLED.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "bp_I2C_OLED.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

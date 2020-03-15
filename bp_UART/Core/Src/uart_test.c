@@ -6,7 +6,7 @@
  */
 
 /* INCLUDES -------------------------------- */
-#include "uart.h"
+#include "uart_test.h"
 #include "tx_UART.h"
 /* PERIPHERALS ----------------------------- */
 extern UART_HandleTypeDef huart1;
