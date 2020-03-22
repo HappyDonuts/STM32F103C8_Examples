@@ -23,8 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ads115.h"
-#include "ssd1306_basic.h"
+#include "test_i2c_adc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,8 +44,7 @@
 I2C_HandleTypeDef hi2c1;
 
 /* USER CODE BEGIN PV */
-ssd1306_t* ssd1306_1;
-ads_t* ads_1;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -93,24 +91,14 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
- ads_1 = ads_new(&hi2c1, 0x48);
- ssd1306_1 = ssd1306_new(&hi2c1, 0x79);
-
- uint16_t voltage = ads_read(ads_1, 0, 0);
-
- SSD1306_Putint(ssd1306_1, voltage, 1);
- SSD1306_UpdateScreen(ssd1306_1);
+  main_s();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Delay(300);
-	  voltage = ads_read(ads_1, 0, 0);
 
-	  SSD1306_Putint(ssd1306_1, voltage, 1);
-	  SSD1306_UpdateScreen(ssd1306_1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

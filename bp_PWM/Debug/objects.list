@@ -1,6 +1,7 @@
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
@@ -16,4 +17,5 @@
 "Src/syscalls.o"
 "Src/sysmem.o"
 "Src/system_stm32f1xx.o"
+"Src/test_pwm.o"
 "Startup/startup_stm32f103c8tx.o"

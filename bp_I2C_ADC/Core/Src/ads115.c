@@ -13,7 +13,11 @@
 /**
  * @brief  Creates new ads_t variable corresponding to a ads module
  * @param  *hi2c: I2C peripheral from the mcu
- * @param  addr: I2C address used by the module
+ * @param  addr: I2C address used by the module:
+ * 			ADDR -> GND: 0x48
+ * 			addr -> VDD: 0x49
+ * 			addr -> SDA: 0x4A
+ * 			addr -> SCL: 0x4B
  * @retval ads_t variable corresponding to the ads module
  */
 ads_t* ads_new(I2C_HandleTypeDef *hi2c, uint8_t addr){
@@ -26,7 +30,11 @@ ads_t* ads_new(I2C_HandleTypeDef *hi2c, uint8_t addr){
  * @brief  Initialization of ads115 module
  * @param  *ads: ads variable corresponding to the module targeted
  * @param  *hi2c: I2C peripheral from the mcu
- * @param  addr: I2C address used by the module
+ * @param  addr: I2C address used by the module:
+ * 			ADDR -> GND: 0x48
+ * 			addr -> VDD: 0x49
+ * 			addr -> SDA: 0x4A
+ * 			addr -> SCL: 0x4B
  * @retval None
  */
 void ads_init(ads_t *ads, I2C_HandleTypeDef *hi2c, uint8_t addr){

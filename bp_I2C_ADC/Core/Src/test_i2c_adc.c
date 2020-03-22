@@ -1,22 +1,26 @@
 /*
- * uart.c
+ * test_i2c_adc.c
  *
- *  Created on: Mar 12, 2020
+ *  Created on: Mar 22, 2020
  *      Author: Javi
  */
 
 /* INCLUDES -------------------------------- */
-#include "uart_test.h"
-#include "tx_UART.h"
+#include "test_i2c_adc.h"
+
+#include "ads115.h"
+#include "ssd1306_basic.h"
 /* PERIPHERALS ----------------------------- */
-extern UART_HandleTypeDef huart1;
-UART_HandleTypeDef* uart = &huart1; // A9 TX
+I2C_HandleTypeDef hi2c1;
+
+I2C_HandleTypeDef* i2c = &hi2c1;
 /* DEFINES  -------------------------------- */
 
 /* TYPEDEF --------------------------------- */
 
 /* VARIABLES ------------------------------- */
-uart_t* uart_1;
+ssd1306_t* ssd1306_1;
+ads_t* ads_1;
 /* FUNCTION PROTOTYPES --------------------- */
 
 
@@ -26,15 +30,17 @@ uart_t* uart_1;
   */
 void main_s(void){
 	/* MAIN CODE */
-	uart_1 = tx_UART_new(uart);
+	 ads_1 = ads_new(i2c, 0x48);
+	 ssd1306_1 = ssd1306_new(i2c, 0x79);
 
-	double number = -99.000912;
-	//tx_UART_int(uart_1, number);
-	tx_UART_double(uart_1, number, 4);
+	 int16_t v_1;
 	
 	while(1){
 		/* WHILE CODE */
+		HAL_Delay(100);
+		v_1 = ads_read(ads_1, 5, 0);
 		
+		SSD1306_Putint(ssd1306_1, v_1, MV, 1);
+		SSD1306_UpdateScreen(ssd1306_1);
 	}
 }
-

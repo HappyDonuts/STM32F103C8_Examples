@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "mcp4725.h"
+#include "test_dac_i2c.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +44,7 @@
 I2C_HandleTypeDef hi2c1;
 
 /* USER CODE BEGIN PV */
-mcp_t* mcp_1; //DAC module
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -91,19 +91,13 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  mcp_1 = mcp_new(&hi2c1, 0xC0); //0xC4 - other address
-  HAL_Delay(200);
-  mcp_write(mcp_1, 4095, 1);
+  main_s();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//	  HAL_Delay(2000);
-//	  mcp_write(mcp_1, 0, 1);
-//	  HAL_Delay(2000);
-//	  mcp_write(mcp_1, 4095, 1);
 
     /* USER CODE END WHILE */
 

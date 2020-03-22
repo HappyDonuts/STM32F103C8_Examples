@@ -1,0 +1,3 @@
+test_pwm.c:27:6:main_s	24	static
+test_pwm.c:54:6:HAL_TIM_PeriodElapsedCallback	16	static
+test_pwm.c:63:6:HAL_GPIO_EXTI_Callback	16	static

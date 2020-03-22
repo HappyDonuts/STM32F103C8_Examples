@@ -5,11 +5,11 @@
  *      Author: Javi
  */
 
-#ifndef INC_UART_TEST_H_
-#define INC_UART_TEST_H_
+#ifndef INC_TEST_UART_H_
+#define INC_TEST_UART_H_
 
 #include "main.h"
 
 void main_s(void);
 
-#endif /* INC_UART_TEST_H_ */
+#endif /* INC_TEST_UART_H_ */

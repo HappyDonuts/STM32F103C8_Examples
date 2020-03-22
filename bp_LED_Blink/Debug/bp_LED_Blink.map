@@ -1792,121 +1792,6 @@ Discarded input sections
  .comment       0x0000000000000000       0x7c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
  .ARM.attributes
                 0x0000000000000000       0x33 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .group         0x0000000000000000        0xc Src/LED_Blink.o
- .text          0x0000000000000000        0x0 Src/LED_Blink.o
- .data          0x0000000000000000        0x0 Src/LED_Blink.o
- .bss           0x0000000000000000        0x0 Src/LED_Blink.o
- .text.HAL_GPIO_EXTI_Callback
-                0x0000000000000000       0x14 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0xa5a Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x163 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x2e Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x22 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x22 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x8e Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x51 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0xef Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x6a Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x1df Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x34 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x34 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0xb8e Src/LED_Blink.o
- .debug_macro   0x0000000000000000     0xe911 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x43 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x46 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x18 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x3c Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x34 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x16 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x97 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x330 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0xfd Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x10 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x52 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x1f Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x43 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x20 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x1a3 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x10 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x1c Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x52 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x40 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x10 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x40 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0xd7 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x1c Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x3d Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x16 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x145 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x57 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x5c2 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x28a Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x1cb Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x11e Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x1b3 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x27 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x1bc Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x34 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x3c Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x57 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x8c Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x242 Src/LED_Blink.o
- .debug_macro   0x0000000000000000      0x143 Src/LED_Blink.o
- .debug_macro   0x0000000000000000       0x83 Src/LED_Blink.o
  .group         0x0000000000000000        0xc Src/main.o
  .group         0x0000000000000000        0xc Src/main.o
  .group         0x0000000000000000        0xc Src/main.o
@@ -2569,6 +2454,121 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x242 Src/system_stm32f1xx.o
  .debug_macro   0x0000000000000000      0x143 Src/system_stm32f1xx.o
  .debug_macro   0x0000000000000000       0x83 Src/system_stm32f1xx.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .group         0x0000000000000000        0xc Src/test_blink.o
+ .text          0x0000000000000000        0x0 Src/test_blink.o
+ .data          0x0000000000000000        0x0 Src/test_blink.o
+ .bss           0x0000000000000000        0x0 Src/test_blink.o
+ .text.HAL_GPIO_EXTI_Callback
+                0x0000000000000000       0x14 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0xa5a Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x163 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x2e Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x22 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x22 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x8e Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x51 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0xef Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x6a Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x1df Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x34 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x34 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0xb8e Src/test_blink.o
+ .debug_macro   0x0000000000000000     0xe911 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x43 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x46 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x18 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x3c Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x34 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x16 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x97 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x330 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0xfd Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x10 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x52 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x1f Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x43 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x20 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x1a3 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x10 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x1c Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x52 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x40 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x10 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x40 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0xd7 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x1c Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x3d Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x16 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x145 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x57 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x5c2 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x28a Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x1cb Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x11e Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x1b3 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x27 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x1bc Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x34 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x3c Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x57 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x8c Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x242 Src/test_blink.o
+ .debug_macro   0x0000000000000000      0x143 Src/test_blink.o
+ .debug_macro   0x0000000000000000       0x83 Src/test_blink.o
  .text          0x0000000000000000       0x14 Startup/startup_stm32f103c8tx.o
  .data          0x0000000000000000        0x0 Startup/startup_stm32f103c8tx.o
  .bss           0x0000000000000000        0x0 Startup/startup_stm32f103c8tx.o
@@ -2638,13 +2638,13 @@ LOAD Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
 LOAD Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o
 LOAD Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
 LOAD Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
-LOAD Src/LED_Blink.o
 LOAD Src/main.o
 LOAD Src/stm32f1xx_hal_msp.o
 LOAD Src/stm32f1xx_it.o
 LOAD Src/syscalls.o
 LOAD Src/sysmem.o
 LOAD Src/system_stm32f1xx.o
+LOAD Src/test_blink.o
 LOAD Startup/startup_stm32f103c8tx.o
 START GROUP
 LOAD c:/st/stm32cubeide_1.0.2/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc_nano.a
@@ -2738,52 +2738,52 @@ LOAD c:/st/stm32cubeide_1.0.2/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000008000e0c                HAL_RCC_GetSysClockFreq
  .text.RCC_Delay
                 0x0000000008000ed0       0x3c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .text.main_s   0x0000000008000f0c       0x1c Src/LED_Blink.o
-                0x0000000008000f0c                main_s
- .text.main     0x0000000008000f28       0x16 Src/main.o
-                0x0000000008000f28                main
+ .text.main     0x0000000008000f0c       0x16 Src/main.o
+                0x0000000008000f0c                main
  .text.SystemClock_Config
-                0x0000000008000f3e       0x88 Src/main.o
-                0x0000000008000f3e                SystemClock_Config
- *fill*         0x0000000008000fc6        0x2 
+                0x0000000008000f22       0x88 Src/main.o
+                0x0000000008000f22                SystemClock_Config
+ *fill*         0x0000000008000faa        0x2 
  .text.MX_GPIO_Init
-                0x0000000008000fc8       0x98 Src/main.o
+                0x0000000008000fac       0x98 Src/main.o
  .text.Error_Handler
-                0x0000000008001060        0xc Src/main.o
-                0x0000000008001060                Error_Handler
+                0x0000000008001044        0xc Src/main.o
+                0x0000000008001044                Error_Handler
  .text.HAL_MspInit
-                0x000000000800106c       0x64 Src/stm32f1xx_hal_msp.o
-                0x000000000800106c                HAL_MspInit
+                0x0000000008001050       0x64 Src/stm32f1xx_hal_msp.o
+                0x0000000008001050                HAL_MspInit
  .text.NMI_Handler
-                0x00000000080010d0        0xc Src/stm32f1xx_it.o
-                0x00000000080010d0                NMI_Handler
+                0x00000000080010b4        0xc Src/stm32f1xx_it.o
+                0x00000000080010b4                NMI_Handler
  .text.HardFault_Handler
-                0x00000000080010dc        0x6 Src/stm32f1xx_it.o
-                0x00000000080010dc                HardFault_Handler
+                0x00000000080010c0        0x6 Src/stm32f1xx_it.o
+                0x00000000080010c0                HardFault_Handler
  .text.MemManage_Handler
-                0x00000000080010e2        0x6 Src/stm32f1xx_it.o
-                0x00000000080010e2                MemManage_Handler
+                0x00000000080010c6        0x6 Src/stm32f1xx_it.o
+                0x00000000080010c6                MemManage_Handler
  .text.BusFault_Handler
-                0x00000000080010e8        0x6 Src/stm32f1xx_it.o
-                0x00000000080010e8                BusFault_Handler
+                0x00000000080010cc        0x6 Src/stm32f1xx_it.o
+                0x00000000080010cc                BusFault_Handler
  .text.UsageFault_Handler
-                0x00000000080010ee        0x6 Src/stm32f1xx_it.o
-                0x00000000080010ee                UsageFault_Handler
+                0x00000000080010d2        0x6 Src/stm32f1xx_it.o
+                0x00000000080010d2                UsageFault_Handler
  .text.SVC_Handler
-                0x00000000080010f4        0xc Src/stm32f1xx_it.o
-                0x00000000080010f4                SVC_Handler
+                0x00000000080010d8        0xc Src/stm32f1xx_it.o
+                0x00000000080010d8                SVC_Handler
  .text.DebugMon_Handler
-                0x0000000008001100        0xc Src/stm32f1xx_it.o
-                0x0000000008001100                DebugMon_Handler
+                0x00000000080010e4        0xc Src/stm32f1xx_it.o
+                0x00000000080010e4                DebugMon_Handler
  .text.PendSV_Handler
-                0x000000000800110c        0xc Src/stm32f1xx_it.o
-                0x000000000800110c                PendSV_Handler
+                0x00000000080010f0        0xc Src/stm32f1xx_it.o
+                0x00000000080010f0                PendSV_Handler
  .text.SysTick_Handler
-                0x0000000008001118        0xc Src/stm32f1xx_it.o
-                0x0000000008001118                SysTick_Handler
+                0x00000000080010fc        0xc Src/stm32f1xx_it.o
+                0x00000000080010fc                SysTick_Handler
  .text.SystemInit
-                0x0000000008001124       0x68 Src/system_stm32f1xx.o
-                0x0000000008001124                SystemInit
+                0x0000000008001108       0x68 Src/system_stm32f1xx.o
+                0x0000000008001108                SystemInit
+ .text.main_s   0x0000000008001170       0x1c Src/test_blink.o
+                0x0000000008001170                main_s
  .text.Reset_Handler
                 0x000000000800118c       0x48 Startup/startup_stm32f103c8tx.o
                 0x000000000800118c                Reset_Handler
@@ -2985,15 +2985,15 @@ LOAD c:/st/stm32cubeide_1.0.2/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .ARM.attributes
                 0x00000000000000e3       0x33 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .ARM.attributes
-                0x0000000000000116       0x33 Src/LED_Blink.o
+                0x0000000000000116       0x33 Src/main.o
  .ARM.attributes
-                0x0000000000000149       0x33 Src/main.o
+                0x0000000000000149       0x33 Src/stm32f1xx_hal_msp.o
  .ARM.attributes
-                0x000000000000017c       0x33 Src/stm32f1xx_hal_msp.o
+                0x000000000000017c       0x33 Src/stm32f1xx_it.o
  .ARM.attributes
-                0x00000000000001af       0x33 Src/stm32f1xx_it.o
+                0x00000000000001af       0x33 Src/system_stm32f1xx.o
  .ARM.attributes
-                0x00000000000001e2       0x33 Src/system_stm32f1xx.o
+                0x00000000000001e2       0x33 Src/test_blink.o
  .ARM.attributes
                 0x0000000000000215       0x21 Startup/startup_stm32f103c8tx.o
  .ARM.attributes
@@ -3009,11 +3009,11 @@ OUTPUT(bp_LED_Blink.elf elf32-littlearm)
  .debug_info    0x0000000000000efa     0x1348 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .debug_info    0x0000000000002242      0xead Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_info    0x00000000000030ef     0x1029 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_info    0x0000000000004118      0xa34 Src/LED_Blink.o
- .debug_info    0x0000000000004b4c      0xcea Src/main.o
- .debug_info    0x0000000000005836      0xadd Src/stm32f1xx_hal_msp.o
- .debug_info    0x0000000000006313      0xa0c Src/stm32f1xx_it.o
- .debug_info    0x0000000000006d1f      0xc49 Src/system_stm32f1xx.o
+ .debug_info    0x0000000000004118      0xcea Src/main.o
+ .debug_info    0x0000000000004e02      0xadd Src/stm32f1xx_hal_msp.o
+ .debug_info    0x00000000000058df      0xa0c Src/stm32f1xx_it.o
+ .debug_info    0x00000000000062eb      0xc49 Src/system_stm32f1xx.o
+ .debug_info    0x0000000000006f34      0xa34 Src/test_blink.o
  .debug_info    0x0000000000007968       0x22 Startup/startup_stm32f103c8tx.o
 
 .debug_abbrev   0x0000000000000000     0x14b6
@@ -3021,11 +3021,11 @@ OUTPUT(bp_LED_Blink.elf elf32-littlearm)
  .debug_abbrev  0x00000000000002bd      0x36d Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .debug_abbrev  0x000000000000062a      0x251 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_abbrev  0x000000000000087b      0x2eb Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_abbrev  0x0000000000000b66      0x1cb Src/LED_Blink.o
- .debug_abbrev  0x0000000000000d31      0x211 Src/main.o
- .debug_abbrev  0x0000000000000f42      0x1c5 Src/stm32f1xx_hal_msp.o
- .debug_abbrev  0x0000000000001107      0x1ad Src/stm32f1xx_it.o
- .debug_abbrev  0x00000000000012b4      0x1f0 Src/system_stm32f1xx.o
+ .debug_abbrev  0x0000000000000b66      0x211 Src/main.o
+ .debug_abbrev  0x0000000000000d77      0x1c5 Src/stm32f1xx_hal_msp.o
+ .debug_abbrev  0x0000000000000f3c      0x1ad Src/stm32f1xx_it.o
+ .debug_abbrev  0x00000000000010e9      0x1f0 Src/system_stm32f1xx.o
+ .debug_abbrev  0x00000000000012d9      0x1cb Src/test_blink.o
  .debug_abbrev  0x00000000000014a4       0x12 Startup/startup_stm32f103c8tx.o
 
 .debug_aranges  0x0000000000000000      0x3e8
@@ -3038,15 +3038,15 @@ OUTPUT(bp_LED_Blink.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000228       0x90 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
  .debug_aranges
-                0x00000000000002b8       0x28 Src/LED_Blink.o
+                0x00000000000002b8       0x38 Src/main.o
  .debug_aranges
-                0x00000000000002e0       0x38 Src/main.o
+                0x00000000000002f0       0x20 Src/stm32f1xx_hal_msp.o
  .debug_aranges
-                0x0000000000000318       0x20 Src/stm32f1xx_hal_msp.o
+                0x0000000000000310       0x60 Src/stm32f1xx_it.o
  .debug_aranges
-                0x0000000000000338       0x60 Src/stm32f1xx_it.o
+                0x0000000000000370       0x28 Src/system_stm32f1xx.o
  .debug_aranges
-                0x0000000000000398       0x28 Src/system_stm32f1xx.o
+                0x0000000000000398       0x28 Src/test_blink.o
  .debug_aranges
                 0x00000000000003c0       0x28 Startup/startup_stm32f103c8tx.o
 
@@ -3055,11 +3055,11 @@ OUTPUT(bp_LED_Blink.elf elf32-littlearm)
  .debug_ranges  0x00000000000000c0       0xf0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .debug_ranges  0x00000000000001b0       0x48 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_ranges  0x00000000000001f8       0x80 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_ranges  0x0000000000000278       0x18 Src/LED_Blink.o
- .debug_ranges  0x0000000000000290       0x28 Src/main.o
- .debug_ranges  0x00000000000002b8       0x10 Src/stm32f1xx_hal_msp.o
- .debug_ranges  0x00000000000002c8       0x50 Src/stm32f1xx_it.o
- .debug_ranges  0x0000000000000318       0x18 Src/system_stm32f1xx.o
+ .debug_ranges  0x0000000000000278       0x28 Src/main.o
+ .debug_ranges  0x00000000000002a0       0x10 Src/stm32f1xx_hal_msp.o
+ .debug_ranges  0x00000000000002b0       0x50 Src/stm32f1xx_it.o
+ .debug_ranges  0x0000000000000300       0x18 Src/system_stm32f1xx.o
+ .debug_ranges  0x0000000000000318       0x18 Src/test_blink.o
  .debug_ranges  0x0000000000000330       0x20 Startup/startup_stm32f103c8tx.o
 
 .debug_macro    0x0000000000000000    0x13fc1
@@ -3122,25 +3122,25 @@ OUTPUT(bp_LED_Blink.elf elf32-littlearm)
  .debug_macro   0x00000000000128bf      0x2c6 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .debug_macro   0x0000000000012b85      0x336 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_macro   0x0000000000012ebb      0x2d8 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_macro   0x0000000000013193      0x2da Src/LED_Blink.o
- .debug_macro   0x000000000001346d      0x2de Src/main.o
- .debug_macro   0x000000000001374b      0x2d0 Src/stm32f1xx_hal_msp.o
- .debug_macro   0x0000000000013a1b      0x2da Src/stm32f1xx_it.o
- .debug_macro   0x0000000000013cf5      0x2cc Src/system_stm32f1xx.o
+ .debug_macro   0x0000000000013193      0x2de Src/main.o
+ .debug_macro   0x0000000000013471      0x2d0 Src/stm32f1xx_hal_msp.o
+ .debug_macro   0x0000000000013741      0x2da Src/stm32f1xx_it.o
+ .debug_macro   0x0000000000013a1b      0x2cc Src/system_stm32f1xx.o
+ .debug_macro   0x0000000000013ce7      0x2da Src/test_blink.o
 
-.debug_line     0x0000000000000000     0x4f48
+.debug_line     0x0000000000000000     0x4f4b
  .debug_line    0x0000000000000000      0x957 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
  .debug_line    0x0000000000000957      0xa45 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .debug_line    0x000000000000139c      0x98f Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_line    0x0000000000001d2b      0xa41 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_line    0x000000000000276c      0x7be Src/LED_Blink.o
- .debug_line    0x0000000000002f2a      0x7f5 Src/main.o
- .debug_line    0x000000000000371f      0x79d Src/stm32f1xx_hal_msp.o
- .debug_line    0x0000000000003ebc      0x840 Src/stm32f1xx_it.o
- .debug_line    0x00000000000046fc      0x7cd Src/system_stm32f1xx.o
- .debug_line    0x0000000000004ec9       0x7f Startup/startup_stm32f103c8tx.o
+ .debug_line    0x000000000000276c      0x7f6 Src/main.o
+ .debug_line    0x0000000000002f62      0x79d Src/stm32f1xx_hal_msp.o
+ .debug_line    0x00000000000036ff      0x840 Src/stm32f1xx_it.o
+ .debug_line    0x0000000000003f3f      0x7cd Src/system_stm32f1xx.o
+ .debug_line    0x000000000000470c      0x7c0 Src/test_blink.o
+ .debug_line    0x0000000000004ecc       0x7f Startup/startup_stm32f103c8tx.o
 
-.debug_str      0x0000000000000000    0x6891b
+.debug_str      0x0000000000000000    0x6891c
  .debug_str     0x0000000000000000    0x67ced Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
                                       0x68088 (size before relaxing)
  .debug_str     0x0000000000067ced      0x326 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
@@ -3149,17 +3149,17 @@ OUTPUT(bp_LED_Blink.elf elf32-littlearm)
                                       0x67de3 (size before relaxing)
  .debug_str     0x00000000000683c3      0x368 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
                                       0x67e11 (size before relaxing)
- .debug_str     0x000000000006872b       0x32 Src/LED_Blink.o
-                                      0x679ff (size before relaxing)
- .debug_str     0x000000000006875d       0x51 Src/main.o
+ .debug_str     0x000000000006872b       0x69 Src/main.o
                                       0x67bcf (size before relaxing)
- .debug_str     0x00000000000687ae       0x1b Src/stm32f1xx_hal_msp.o
+ .debug_str     0x0000000000068794       0x1b Src/stm32f1xx_hal_msp.o
                                       0x67a27 (size before relaxing)
- .debug_str     0x00000000000687c9       0xb8 Src/stm32f1xx_it.o
+ .debug_str     0x00000000000687af       0xb8 Src/stm32f1xx_it.o
                                       0x67a44 (size before relaxing)
- .debug_str     0x0000000000068881       0x69 Src/system_stm32f1xx.o
+ .debug_str     0x0000000000068867       0x69 Src/system_stm32f1xx.o
                                       0x67a8e (size before relaxing)
- .debug_str     0x00000000000688ea       0x31 Startup/startup_stm32f103c8tx.o
+ .debug_str     0x00000000000688d0       0x1b Src/test_blink.o
+                                      0x67a00 (size before relaxing)
+ .debug_str     0x00000000000688eb       0x31 Startup/startup_stm32f103c8tx.o
                                          0x66 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
@@ -3168,21 +3168,21 @@ OUTPUT(bp_LED_Blink.elf elf32-littlearm)
  .comment       0x000000000000007b       0x7c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .comment       0x000000000000007b       0x7c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .comment       0x000000000000007b       0x7c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .comment       0x000000000000007b       0x7c Src/LED_Blink.o
  .comment       0x000000000000007b       0x7c Src/main.o
  .comment       0x000000000000007b       0x7c Src/stm32f1xx_hal_msp.o
  .comment       0x000000000000007b       0x7c Src/stm32f1xx_it.o
  .comment       0x000000000000007b       0x7c Src/system_stm32f1xx.o
+ .comment       0x000000000000007b       0x7c Src/test_blink.o
 
 .debug_frame    0x0000000000000000      0xd5c
  .debug_frame   0x0000000000000000      0x2fc Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
  .debug_frame   0x00000000000002fc      0x428 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
  .debug_frame   0x0000000000000724      0x14c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
  .debug_frame   0x0000000000000870      0x21c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
- .debug_frame   0x0000000000000a8c       0x54 Src/LED_Blink.o
- .debug_frame   0x0000000000000ae0       0x94 Src/main.o
- .debug_frame   0x0000000000000b74       0x38 Src/stm32f1xx_hal_msp.o
- .debug_frame   0x0000000000000bac      0x10c Src/stm32f1xx_it.o
- .debug_frame   0x0000000000000cb8       0x58 Src/system_stm32f1xx.o
+ .debug_frame   0x0000000000000a8c       0x94 Src/main.o
+ .debug_frame   0x0000000000000b20       0x38 Src/stm32f1xx_hal_msp.o
+ .debug_frame   0x0000000000000b58      0x10c Src/stm32f1xx_it.o
+ .debug_frame   0x0000000000000c64       0x58 Src/system_stm32f1xx.o
+ .debug_frame   0x0000000000000cbc       0x54 Src/test_blink.o
  .debug_frame   0x0000000000000d10       0x2c c:/st/stm32cubeide_1.0.2/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc_nano.a(lib_a-init.o)
  .debug_frame   0x0000000000000d3c       0x20 c:/st/stm32cubeide_1.0.2/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc_nano.a(lib_a-memset.o)

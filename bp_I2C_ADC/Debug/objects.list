@@ -7,6 +7,7 @@
 "Core/Src/syscalls.o"
 "Core/Src/sysmem.o"
 "Core/Src/system_stm32f1xx.o"
+"Core/Src/test_i2c_adc.o"
 "Core/Startup/startup_stm32f103c8tx.o"
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
 "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"

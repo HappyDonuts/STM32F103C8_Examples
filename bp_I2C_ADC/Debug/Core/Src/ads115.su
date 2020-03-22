@@ -1,5 +1,5 @@
-ads115.c:19:8:ads_new	24	static
-ads115.c:32:6:ads_init	24	static
-ads115.c:43:6:ads_write	32	static
-ads115.c:57:10:ads_voltageConv	24	static
-ads115.c:89:10:ads_read	32	static
+ads115.c:23:8:ads_new	24	static
+ads115.c:40:6:ads_init	24	static
+ads115.c:51:6:ads_write	32	static
+ads115.c:65:10:ads_voltageConv	24	static
+ads115.c:97:10:ads_read	32	static

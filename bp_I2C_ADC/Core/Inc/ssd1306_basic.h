@@ -29,13 +29,12 @@
 extern C {
 #endif
 
-//#include "stm32f3xx_hal.h"
-#include "stm32f1xx_hal.h"
-#include "fonts.h"
+#include "main.h"
+#include <stdlib.h>
 #include <stdio.h>
+#include "fonts.h"
+#include <math.h>
 
-#include "stdlib.h"
-#include "string.h"
 
 /* SSD1306 width in pixels */
 #ifndef SSD1306_WIDTH
@@ -45,6 +44,12 @@ extern C {
 #ifndef SSD1306_HEIGHT
 #define SSD1306_HEIGHT           64
 #endif
+
+#define NO 	"  "
+#define MV 		"mV"
+#define V 		" V"
+#define MA 		"mA"
+#define A	    " A"
 
 /**
  * @brief  SSD1306 color enumeration
@@ -148,15 +153,47 @@ char SSD1306_Putc(ssd1306_t* ssd1306, uint8_t ch, FontDef_t* Font, SSD1306_COLOR
 char SSD1306_Puts(ssd1306_t* ssd1306, char* str, FontDef_t* Font, SSD1306_COLOR_t color);
 
 /**
- * @brief  Puts int to internal RAM
- * @param  data: int to be written
+ * @brief  Represents an integer number with a char array
+ * @param  integer: int to be represented
+ * @param  unit: unit of the value, 2 char array ("mV", " A", etc.)
+ * @retval Char array containing a char for each digit
+ */
+char* int_str(int integer,  char* unit);
+
+/**
+ * @brief  Puts integer to internal RAM
+ * @note   @ref If the number has mora than 6 digits, displays OVERLOAD
+ * @param  data: integer to be written
+ * @param  unit: unit of the value, 2 char array (NO, MV, V, MA, A, "uV", "ms", etc.)
  * @param  slot: slot to be used. 1, 2, and 3 are large slots. 4 and 5 are small slots
  */
-void SSD1306_Putint(ssd1306_t* ssd1306, int data, uint8_t slot);
+void SSD1306_Putint(ssd1306_t* ssd1306, int data, char* unit, uint8_t slot);
 
-void SSD1306_Putdouble(ssd1306_t* ssd1306, float data, uint8_t decimales, uint8_t slot);
-uint8_t size_int_oled(int data);
-char* double_str(double data, uint8_t decimales);
+/**
+ * @brief  Represents a double number with a char array
+ * @param  number: double to be represented
+ * @param  decimals: number of decimals to be represented
+ * @param  unit: unit of the value, 2 char array (NO, MV, V, MA, A, "uV", "ms", etc.)
+ * @retval Char array containing a char for each digit
+ */
+char* double_str(double number, uint8_t decimals, char* unit);
+
+/**
+ * @brief  Puts double to internal RAM
+ * @note   @ref If the number has mora than 6 digits, displays OVERLOAD
+ * @param  data: double to be written
+ * @param  decimals: number of decimals to be represented
+ * @param  unit: unit of the value, 2 char array (NO, MV, V, MA, A, "uV", "ms", etc.)
+ * @param  slot: slot to be used. 1, 2, and 3 are large slots. 4 and 5 are small slots
+ */
+void SSD1306_Putdouble(ssd1306_t* ssd1306, double data, uint8_t decimals, char* unit, uint8_t slot);
+
+/**
+ * @brief  Calculates the number of digits needed to represent an integer
+ * @param  int: integer to be processed
+ * @retval Number of digits in an integer
+ */
+uint8_t SSD1306_digits(int integer);
 
 #ifndef ssd1306_I2C_TIMEOUT
 #define ssd1306_I2C_TIMEOUT					20000
