@@ -8,8 +8,8 @@ ssd1306_basic.c:146:6:SSD1306_Putc	40	static
 ssd1306_basic.c:183:7:int_str	48	dynamic
 ssd1306_basic.c:219:6:SSD1306_Putint	40	static
 ssd1306_basic.c:258:7:double_str	48	dynamic
-ssd1306_basic.c:300:6:SSD1306_Putdouble	40	static
-ssd1306_basic.c:338:9:SSD1306_digits	32	static
-ssd1306_basic.c:349:6:SSD1306_Puts	24	static
-ssd1306_basic.c:376:6:ssd1306_I2C_WriteMulti	56	dynamic
-ssd1306_basic.c:385:6:ssd1306_I2C_Write	32	static
+ssd1306_basic.c:312:6:SSD1306_Putdouble	40	static
+ssd1306_basic.c:350:9:SSD1306_digits	32	static
+ssd1306_basic.c:361:6:SSD1306_Puts	24	static
+ssd1306_basic.c:388:6:ssd1306_I2C_WriteMulti	56	dynamic
+ssd1306_basic.c:397:6:ssd1306_I2C_Write	32	static

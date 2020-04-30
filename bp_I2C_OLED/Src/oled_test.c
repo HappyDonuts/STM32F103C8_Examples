@@ -29,15 +29,16 @@ void main_s(void){
 	/* MAIN CODE */
 	ssd1306_1 = ssd1306_new(i2c, 0x78); // 0x79
 	
-	double data = -30.12345678;
-	SSD1306_Putdouble(ssd1306_1, data, 4, NO, 1);
+//	double data = -30.12345678;
+	double data = -0.041;
+	SSD1306_Putdouble(ssd1306_1, data, 2, NO, 1);
 	SSD1306_Putdouble(ssd1306_1, data, 4, MV, 2);
 	SSD1306_Putdouble(ssd1306_1, data, 6, MV, 3);
 	SSD1306_Putdouble(ssd1306_1, data, 1, NO, 4);
 	SSD1306_Putdouble(ssd1306_1, data, 4, NO, 5);
 	SSD1306_UpdateScreen(ssd1306_1);
 
-//	int data_i = -1234;
+//	int data_i = -0;
 //	SSD1306_Putint(ssd1306_1, data_i,  NO, 1);
 //	SSD1306_Putint(ssd1306_1, data_i,  MA, 2);
 //	SSD1306_Putint(ssd1306_1, 12345678,  MV, 3);

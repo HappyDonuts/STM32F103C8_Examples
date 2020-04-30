@@ -264,12 +264,24 @@ char* double_str(double number, uint8_t decimals, char* unit){
 	}
 
 	number = round(number*pow(10, decimals));
-	uint8_t size = SSD1306_digits(number);
+	uint8_t size;
+	if (number == 0){
+		size = decimals+1;
+	} else {
+		size = SSD1306_digits(number);
+	}
 	if (size > 6) {
 		return "OVERLOAD";
 	}
+
 	char data_char[size];
-	sprintf(data_char,"%d", (int)number);
+	if (number == 0){
+		for(uint8_t i=0;i<size;i++){
+			data_char[i]='0';
+		}
+	} else {
+		sprintf(data_char,"%d", (int)number);
+	}
 
 	static char double_str[11];
 	for(int8_t i=1; i<11; i++){

@@ -1,0 +1,2 @@
+test_timing.c:33:6:main_s	40	static
+test_timing.c:57:6:HAL_TIM_PeriodElapsedCallback	16	static

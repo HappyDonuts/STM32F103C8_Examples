@@ -21,8 +21,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
    ----------------------------------------------------------------------
  */
-#include <ssd1306_basic.h>
-#include "math.h"
+#include "ssd1306_basic.h"
 
 /* SSD1306 data buffer */
 //static uint8_t SSD1306_Buffer[SSD1306_WIDTH * SSD1306_HEIGHT / 8];
@@ -175,160 +174,176 @@ char SSD1306_Putc(ssd1306_t* ssd1306, uint8_t ch, FontDef_t* Font, SSD1306_COLOR
 	return ch;
 }
 
-void SSD1306_Putint(ssd1306_t* ssd1306, int data, uint8_t slot) {
-
-	char menos_char = ' ';
-	if (data < 0) {
-		data = -data;
-		menos_char = '-';
+/**
+ * @brief  Represents an integer number with a char array
+ * @param  integer: int to be represented
+ * @param  unit: unit of the value, 2 char array ("mV", " A", etc.)
+ * @retval Char array containing a char for each digit
+ */
+char* int_str(int integer,  char* unit){
+	char negative = ' ';
+	if (integer < 0) {
+		integer = -integer;
+		negative = '-';
 	}
 
-	int size = size_int_oled(data);
-	char data_char[size];		// String de chars=
-	sprintf(data_char,"%d", data);	// Cada numero del int en un char
+	int size = SSD1306_digits(integer);
+	if (size > 7){
+			return "OVERLOAD";
+	}
+	char data_char[size];
+	sprintf(data_char,"%d", integer);
 
-	uint16_t x_slot = 0;
+	static char int_str[11];
+	for(int i=1; i<11; i++){
+		if (i<size+1){
+			int_str[i] = data_char[i-1];
+		} else if (i < 9){
+			int_str[i] = ' ';
+		} else {
+			int_str[i] = unit[i-9];
+		}
+	}
+	int_str[0] = negative;
+	int_str[8] = ' ';
+	return int_str;
+}
+
+/**
+ * @brief  Puts integer to internal RAM
+ * @note   @ref If the number has mora than 6 digits, displays OVERLOAD
+ * @param  data: integer to be written
+ * @param  unit: unit of the value, 2 char array (NO, MV, V, MA, A, "uV", "ms", etc.)
+ * @param  slot: slot to be used. 1, 2, and 3 are large slots. 4 and 5 are small slots
+ */
+void SSD1306_Putint(ssd1306_t* ssd1306, int data, char* unit, uint8_t slot) {
+
+	char* integer_str = int_str(data, unit);
+	uint16_t x_slot = 1;
 	uint16_t y_slot = 0;
-	uint8_t slot_mini = 0;
+	FontDef_t font = Font_11x18;
 	switch (slot) {
 	case 1:
-		x_slot = 2;
 		y_slot = 0;
 		break;
 	case 2:
-		x_slot = 2;
 		y_slot = 17;
 		break;
 	case 3:
-		x_slot = 2;
-		y_slot = 35;
+		y_slot = 34;
 		break;
 	case 4:
-		x_slot = 22;
 		y_slot = 53;
-		slot_mini = 1;
+		font = Font_7x10;
 		break;
 	case 5:
-		x_slot = 70;
+		x_slot = 65;
 		y_slot = 53;
-		slot_mini = 1;
+		font = Font_7x10;
 		break;
 	}
-	if (slot_mini == 1){
-		SSD1306_GotoXY (ssd1306, x_slot,y_slot);				// Select x and y from the selected slot
-		SSD1306_Puts (ssd1306, "       ", &Font_7x10, 1);	// Reset the slot before writing (7 blank chars for small slots)
-		SSD1306_GotoXY (ssd1306, x_slot,y_slot);				// Come back to the initial position
-		SSD1306_Putc (ssd1306, menos_char, &Font_7x10, 1);	// Write minus char if necessary
-		SSD1306_GotoXY (ssd1306, x_slot+7,y_slot);			// Shif a char correspondig to the minus char
-		SSD1306_Puts (ssd1306, data_char, &Font_7x10, 1);	// Write the value
-		return;
-	}
 	SSD1306_GotoXY (ssd1306, x_slot,y_slot);
-	SSD1306_Puts (ssd1306, "         ", &Font_11x18, 1);		// Reset the slot before writing (9 blank chars for small slots)
+	SSD1306_Puts (ssd1306, "         ", &font, 1);
 	SSD1306_GotoXY (ssd1306, x_slot,y_slot);
-	SSD1306_Putc (ssd1306, menos_char, &Font_11x18, 1);
-	SSD1306_GotoXY (ssd1306, x_slot+11,y_slot);
-	SSD1306_Puts (ssd1306, data_char, &Font_11x18, 1);
+	SSD1306_Puts (ssd1306, integer_str, &font, 1);
 }
 
-char* double_str(double data, uint8_t decimales){
-	char negativo = ' ';
-	if (data < 0) {
-		data = -data;
-		negativo = '-';
+/**
+ * @brief  Represents a double number with a char array
+ * @param  number: double to be represented
+ * @param  decimals: number of decimals to be represented
+ * @param  unit: unit of the value, 2 char array (NO, MV, V, MA, A, "uV", "ms", etc.)
+ * @retval Char array containing a char for each digit
+ */
+char* double_str(double number, uint8_t decimals, char* unit){
+
+	uint8_t negative = ' ';
+	if (number < 0) {
+		number = -number;
+		negative = '-';
 	}
 
-	int potencia_10 = pow(10, decimales);
-	double p_entera_f = trunc(data);
-	double p_decimal_f = data*potencia_10 - p_entera_f*potencia_10;
-	int p_entera = p_entera_f;
-	int p_decimal = p_decimal_f;
-
-	int size = size_int_oled(p_entera);
-	char p_entera_char[size];		// String de chars
-	sprintf(p_entera_char,"%d", p_entera);	// Cada numero del int en un char
-
-	char p_decimal_char[decimales];
-	size = size_int_oled(p_decimal);
-	if (decimales>size){
-		p_decimal = p_decimal + pow(10,decimales-1);
+	number = round(number*pow(10, decimals));
+	uint8_t size = SSD1306_digits(number);
+	if (size > 6) {
+		return "OVERLOAD";
 	}
-	sprintf(p_decimal_char,"%d", p_decimal);
-	for(uint8_t i=0; i<(decimales-size);i++){
-		p_decimal_char[i] = '0';
-	}
+	char data_char[size];
+	sprintf(data_char,"%d", (int)number);
 
-	uint8_t total_size = sizeof(p_entera_char)+decimales+2;
-	static char float_str[10];
-
-	for(uint8_t i= 0; i<11; i++){
-		if (i==0){
-			float_str[i] = negativo;
-		} else if((i>0) && (i<sizeof(p_entera_char)+1)){
-			float_str[i] = p_entera_char[i-1];
-		} else if (i == sizeof(p_entera_char)+1){
-			float_str[i] = '.';
-		} else if ((i> sizeof(p_entera_char)+1) && (i<total_size)){
-			float_str[i] = p_decimal_char[i-(sizeof(p_entera_char)+2)];
-		} else {float_str[i] = ' ';}
+	static char double_str[11];
+	for(int8_t i=1; i<11; i++){
+		if (i < (size-decimals+1)){
+			double_str[i] = data_char[i-1];
+		} else if (i < size+2){
+			double_str[i] = data_char[i-2];
+		} else if (i < 11-2){
+			double_str[i] = ' ';
+		} else {
+			double_str[i] = unit[i-9];
+		}
 	}
-	return float_str;
+	double_str[0] = negative;
+	double_str[size-decimals+1] = '.';
+	double_str[8] = ' ';
+	return double_str;
 }
 
-void SSD1306_Putdouble(ssd1306_t* ssd1306, float data, uint8_t decimales, uint8_t slot) {
-	char* float_str = double_str(data, decimales);
+/**
+ * @brief  Puts double to internal RAM
+ * @note   @ref If the number has mora than 6 digits, displays OVERLOAD
+ * @param  data: double to be written
+ * @param  decimals: number of decimals to be represented
+ * @param  unit: unit of the value, 2 char array (NO, MV, V, MA, A, "uV", "ms", etc.)
+ * @param  slot: slot to be used. 1, 2, and 3 are large slots. 4 and 5 are small slots
+ */
+void SSD1306_Putdouble(ssd1306_t* ssd1306, double data, uint8_t decimals, char* unit, uint8_t slot) {
+	char* float_str = double_str(data, decimals, unit);
 
-	uint16_t x_slot = 0;
+	uint16_t x_slot = 1;
 	uint16_t y_slot = 0;
-	uint8_t slot_mini = 0;
+	FontDef_t font = Font_11x18;
 	switch (slot) {
 	case 1:
-		x_slot = 2;
 		y_slot = 0;
 		break;
 	case 2:
-		x_slot = 2;
 		y_slot = 17;
 		break;
 	case 3:
-		x_slot = 2;
-		y_slot = 35;
+		y_slot = 34;
 		break;
 	case 4:
-		x_slot = 2;
 		y_slot = 53;
-		slot_mini = 1;
+		font = Font_7x10;
 		break;
 	case 5:
-		x_slot = 60;
+		x_slot = 65;
 		y_slot = 53;
-		slot_mini = 1;
+		font = Font_7x10;
 		break;
 	}
-	if (slot_mini == 1){
-		SSD1306_GotoXY (ssd1306, x_slot,y_slot);				// Select x and y from the selected slot
-		SSD1306_Puts (ssd1306, "       ", &Font_7x10, 1);	// Reset the slot before writing (7 blank chars for small slots)
-		SSD1306_GotoXY (ssd1306, x_slot,y_slot);				// Come back to the initial position
-		SSD1306_Puts (ssd1306, float_str, &Font_7x10, 1);	// Write the value
-//		SSD1306_UpdateScreen();						// Update the screen
-		return;
-	}
+
 	SSD1306_GotoXY (ssd1306, x_slot,y_slot);
-	SSD1306_Puts (ssd1306, "         ", &Font_11x18, 1);		// Reset the slot before writing (9 blank chars for small slots)
+	SSD1306_Puts (ssd1306, "         ", &font, 1);
 	SSD1306_GotoXY (ssd1306, x_slot,y_slot);
-	SSD1306_Puts (ssd1306, float_str, &Font_11x18, 1);
-//	SSD1306_UpdateScreen();
+	SSD1306_Puts (ssd1306, float_str, &font, 1);
 }
 
-uint8_t size_int_oled(int data){
-	uint8_t size;
-	if (data==0){
-		size = 1;
+/**
+ * @brief  Calculates the number of digits needed to represent an integer
+ * @param  int: integer to be processed
+ * @retval Number of digits in an integer
+ */
+uint8_t SSD1306_digits(int integer){
+	uint8_t digits;
+	if (integer==0){
+		digits = 1;
 	}
 	else {
-		size = floor(log10(data))+1;
+		digits = floor(log10(integer))+1;
 	}
-	return size;
+	return digits;
 }
 
 char SSD1306_Puts(ssd1306_t* ssd1306, char* str, FontDef_t* Font, SSD1306_COLOR_t color) {

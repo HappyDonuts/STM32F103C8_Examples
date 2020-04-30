@@ -23,8 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ssd1306_basic.h"
-#include "timing.h"
+#include "test_timing.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,8 +46,7 @@ I2C_HandleTypeDef hi2c1;
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-ssd1306_t* ssd1306_1;
-timing_t* timing_1;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,27 +95,7 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  ssd1306_1 = ssd1306_new(&hi2c1, 0x79);
-  timing_1 = timing_new(&htim2);
-
-//  timing_start_s(timing_1);
-//  HAL_Delay(7657);
-//  volatile double ex_time = timing_get_s(timing_1);
-
-  timing_start_ms(timing_1);
-  HAL_Delay(50);
-  volatile double ex_time = timing_get_ms(timing_1);
-
-//  timing_start_us(timing_1);
-//  int i=0;
-//  while (i<2000){
-//	  i++;
-//  }
-//  volatile double ex_time = timing_get_us(timing_1);
-
-  SSD1306_Putdouble(ssd1306_1, ex_time, 1, 1);
-  SSD1306_UpdateScreen(ssd1306_1);
-
+  main_s();
   /* USER CODE END 2 */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */

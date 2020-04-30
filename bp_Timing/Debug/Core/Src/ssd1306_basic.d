@@ -1,5 +1,5 @@
 Core/Src/ssd1306_basic.o: ../Core/Src/ssd1306_basic.c \
- ../Core/Inc/ssd1306_basic.h \
+ ../Core/Inc/ssd1306_basic.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -27,6 +27,8 @@ Core/Src/ssd1306_basic.o: ../Core/Src/ssd1306_basic.c \
  ../Core/Inc/fonts.h
 
 ../Core/Inc/ssd1306_basic.h:
+
+../Core/Inc/main.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 
