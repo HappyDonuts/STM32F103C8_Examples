@@ -1,0 +1,2 @@
+test_spi_lcd.c:26:6:main_s	4	static
+test_spi_lcd.c:40:6:HAL_GPIO_EXTI_Callback	16	static
