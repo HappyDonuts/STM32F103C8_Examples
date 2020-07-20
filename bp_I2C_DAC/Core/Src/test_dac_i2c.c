@@ -31,7 +31,7 @@ void main_s(void){
 	mcp_1 = mcp_new(i2c, 0xC0); //0xC4 - other address
 	HAL_Delay(200);
 	
-	uint16_t voltage = 1500; // mV
+	uint16_t voltage = 2000; // mV
 	uint16_t data_dac = voltage*4095/3300;
 	mcp_write(mcp_1, data_dac, 1);
 

@@ -1,0 +1,14 @@
+ili9341.c:5:13:ILI9341_Select	8	static
+ili9341.c:9:6:ILI9341_Unselect	8	static
+ili9341.c:13:13:ILI9341_Reset	8	static
+ili9341.c:19:13:ILI9341_WriteCommand	16	static
+ili9341.c:24:13:ILI9341_WriteData	24	static
+ili9341.c:36:13:ILI9341_SetAddressWindow	32	static
+ili9341.c:55:6:ILI9341_Init	120	static
+ili9341.c:210:6:ILI9341_DrawPixel	24	static
+ili9341.c:223:13:ILI9341_WriteChar	48	static
+ili9341.c:242:6:ILI9341_WriteString	32	static
+ili9341.c:268:6:ILI9341_FillRectangle	32	static
+ili9341.c:288:6:ILI9341_FillScreen	24	static
+ili9341.c:292:6:ILI9341_DrawImage	24	static
+ili9341.c:303:6:ILI9341_InvertColors	16	static

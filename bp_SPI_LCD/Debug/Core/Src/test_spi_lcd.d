@@ -21,7 +21,8 @@ Core/Src/test_spi_lcd.o: ../Core/Src/test_spi_lcd.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h \
+ ../Core/Src/MY_ILI9341.h ../Core/Inc/main.h
 
 ../Core/Inc/test_spi_lcd.h:
 
@@ -70,3 +71,7 @@ Core/Src/test_spi_lcd.o: ../Core/Src/test_spi_lcd.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h:
+
+../Core/Src/MY_ILI9341.h:
+
+../Core/Inc/main.h:
